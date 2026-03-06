@@ -1259,6 +1259,7 @@ export const dinos = [
   },
   {
     "dino": "thylacoleo",
+    "capa": "/assets/thylacoleo/image.png",
     "builds": {
       "damage": {
         "description": "",
