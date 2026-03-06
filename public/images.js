@@ -1,6 +1,7 @@
 export const dinos = [
   {
     "dino": "aberrant gigantopithecus",
+    "capa": "/assets/aberrant gigantopithecus/image.png",
     "builds": {
       "damage": {
         "description": "Um lindo e adorável gigantopithecus, mas com um lado mais agressivo. Ele é tão forte quanto um gigantopithecus normal, mas tem uma mordida mais poderosa e pode causar mais dano aos inimigos.",
@@ -79,12 +80,12 @@ export const dinos = [
         "description": "",
         "isEgg": true,
         "price": {
-          "egg-pair": 5,
-          "egg-m-or-f": 4,
-          "baby-pair": 4,
-          "baby-m-or-f": 4,
-          "clone-m-or-f": 5,
-          "clone-pair": 6
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
         },
         "variantes": [
           {
@@ -721,6 +722,34 @@ export const dinos = [
           {
             "variant": "normal",
             "fotos": "/assets/ovis/hp/[normal]-hp-false.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "rock drake",
+    "capa": "/assets/rock drake/Sem título.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "dp",
+            "fotos": "/assets/rock drake/balanced/[dp]-balanced-true.png"
+          },
+          {
+            "variant": "",
+            "fotos": "/assets/rock drake/balanced/01]-balanced-true.png"
           }
         ]
       }
