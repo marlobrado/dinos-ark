@@ -820,6 +820,7 @@ export const dinos = [
   },
   {
     "dino": "tek giga",
+    "capa": "/assets/tek giga/image.png",
     "builds": {
       "damage": {
         "description": "",
