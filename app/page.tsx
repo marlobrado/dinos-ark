@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { dinos } from '@/public/images';
 
 type Price = {
@@ -29,6 +29,11 @@ type Dino = {
   dino: string;
   capa?: string;
   builds: Record<string, BuildData>;
+};
+
+type ExpandedImage = {
+  src: string;
+  alt: string;
 };
 
 const typedDinos = dinos as unknown as Dino[];
@@ -83,6 +88,9 @@ const priceOrder = [
 export default function Home() {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [expandedImage, setExpandedImage] = useState<ExpandedImage | null>(
+    null
+  );
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const dinoIndex = useMemo(
@@ -101,6 +109,27 @@ export default function Home() {
       .filter((d) => d.name.toLowerCase().includes(q))
       .slice(0, 8);
   }, [query, dinoIndex]);
+
+  useEffect(() => {
+    if (!expandedImage) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setExpandedImage(null);
+      }
+    }
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [expandedImage]);
 
   function scrollToDino(targetId: string) {
     const el = document.getElementById(targetId);
@@ -124,6 +153,64 @@ export default function Home() {
 
   return (
     <>
+      {expandedImage && (
+        <div
+          onClick={() => setExpandedImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 100,
+            background: 'rgba(0,0,0,0.86)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 24,
+          }}
+        >
+          <button
+            type="button"
+            aria-label="Fechar imagem"
+            onClick={() => setExpandedImage(null)}
+            style={{
+              position: 'absolute',
+              top: 20,
+              right: 20,
+              width: 44,
+              height: 44,
+              borderRadius: 999,
+              border: '1px solid rgba(255,255,255,0.18)',
+              background: 'rgba(255,255,255,0.08)',
+              color: '#fff',
+              fontSize: 28,
+              lineHeight: 1,
+              cursor: 'pointer',
+            }}
+          >
+            ×
+          </button>
+
+          <div
+            onClick={(event) => event.stopPropagation()}
+            style={{
+              position: 'relative',
+              width: 'min(1100px, 100%)',
+              height: 'min(80vh, 800px)',
+            }}
+          >
+            <Image
+              src={expandedImage.src}
+              alt={expandedImage.alt}
+              fill
+              priority
+              style={{
+                objectFit: 'contain',
+                objectPosition: 'center',
+              }}
+            />
+          </div>
+        </div>
+      )}
+
       {/* ================= HEADER ================= */}
       <header
         style={{
@@ -358,6 +445,12 @@ export default function Home() {
                             }}
                           >
                             <div
+                              onClick={() =>
+                                setExpandedImage({
+                                  src: variant.fotos,
+                                  alt: `${dino.dino} ${buildKey} ${variant.variant}`,
+                                })
+                              }
                               style={{
                                 position: 'relative',
                                 width: '100%',
@@ -365,6 +458,7 @@ export default function Home() {
                                 borderRadius: 12,
                                 overflow: 'hidden',
                                 background: 'rgba(0,0,0,0.35)',
+                                cursor: 'zoom-in',
                               }}
                             >
                               <Image
