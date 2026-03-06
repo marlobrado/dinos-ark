@@ -119,6 +119,20 @@
       }
     }
   },
+  "cosmos": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
   "deinosuchus": {
     "balanced": {
       "description": "",
@@ -215,6 +229,20 @@
       }
     }
   },
+  "maeguana": {
+    "food": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
   "managarmr": {
     "balanced": {
       "description": "",
@@ -266,6 +294,20 @@
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
+      }
+    }
+  },
+  "oviraptor": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },

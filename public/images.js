@@ -43,6 +43,7 @@ export const dinos = [
   },
   {
     "dino": "aberrant megalosaurus",
+    "capa": "/assets/aberrant megalosaurus/image.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -330,6 +331,30 @@ export const dinos = [
     }
   },
   {
+    "dino": "cosmos",
+    "capa": "/assets/cosmos/cosmos.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "245",
+            "fotos": "/assets/cosmos/balanced/[245]-balanced-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "deinosuchus",
     "builds": {
       "balanced": {
@@ -442,6 +467,7 @@ export const dinos = [
   },
   {
     "dino": "gasbag",
+    "capa": "/assets/gasbag/image.png",
     "builds": {
       "weight": {
         "description": "",
@@ -517,6 +543,7 @@ export const dinos = [
   },
   {
     "dino": "gigantoraptor",
+    "capa": "/assets/gigantoraptor/image.png",
     "builds": {
       "damage": {
         "description": "",
@@ -574,7 +601,44 @@ export const dinos = [
     }
   },
   {
+    "dino": "maeguana",
+    "capa": "/assets/maeguana/maeguana.jpg",
+    "builds": {
+      "food": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "dp",
+            "fotos": "/assets/maeguana/food/[dp]-food-true.png"
+          },
+          {
+            "variant": "galaxy",
+            "fotos": "/assets/maeguana/food/[galaxy]-food-true.png"
+          },
+          {
+            "variant": "ghost",
+            "fotos": "/assets/maeguana/food/[ghost]-food-true.png"
+          },
+          {
+            "variant": "monster",
+            "fotos": "/assets/maeguana/food/[monster]-food-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "managarmr",
+    "capa": "/assets/managarmr/image.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -699,6 +763,54 @@ export const dinos = [
           {
             "variant": "245",
             "fotos": "/assets/mosasaurus/damage/[245]-damage-false.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "oviraptor",
+    "capa": "/assets/oviraptor/oviraptor.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "01",
+            "fotos": "/assets/oviraptor/balanced/[01]-balanced-true.png"
+          },
+          {
+            "variant": "02",
+            "fotos": "/assets/oviraptor/balanced/[02]-balanced-true.png"
+          },
+          {
+            "variant": "05",
+            "fotos": "/assets/oviraptor/balanced/[05]-balanced-true.png"
+          },
+          {
+            "variant": "36",
+            "fotos": "/assets/oviraptor/balanced/[36]-balanced-true.png"
+          },
+          {
+            "variant": "68",
+            "fotos": "/assets/oviraptor/balanced/[68]-balanced-true.png"
+          },
+          {
+            "variant": "79",
+            "fotos": "/assets/oviraptor/balanced/[79]-balanced-true.png"
+          },
+          {
+            "variant": "dp",
+            "fotos": "/assets/oviraptor/balanced/[dp]-balanced-true.png"
           }
         ]
       }
