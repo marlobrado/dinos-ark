@@ -88,6 +88,8 @@ const priceOrder = [
 export default function Home() {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [activeDinoId, setActiveDinoId] = useState('');
+  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [expandedImage, setExpandedImage] = useState<ExpandedImage | null>(
     null
   );
@@ -111,14 +113,20 @@ export default function Home() {
   }, [query, dinoIndex]);
 
   useEffect(() => {
-    if (!expandedImage) {
+    if (!expandedImage && !isSummaryOpen) {
       document.body.style.overflow = '';
       return;
     }
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
-        setExpandedImage(null);
+        if (expandedImage) {
+          setExpandedImage(null);
+        }
+
+        if (isSummaryOpen) {
+          setIsSummaryOpen(false);
+        }
       }
     }
 
@@ -129,7 +137,46 @@ export default function Home() {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [expandedImage]);
+  }, [expandedImage, isSummaryOpen]);
+
+  useEffect(() => {
+    if (dinoIndex.length === 0) {
+      return;
+    }
+
+    setActiveDinoId((currentId) => currentId || dinoIndex[0].id);
+
+    const sections = dinoIndex
+      .map((dino) => document.getElementById(dino.id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target.id) {
+          setActiveDinoId(visibleEntry.target.id);
+        }
+      },
+      {
+        rootMargin: '-120px 0px -55% 0px',
+        threshold: [0.15, 0.3, 0.6],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
+    };
+  }, [dinoIndex]);
 
   function scrollToDino(targetId: string) {
     const el = document.getElementById(targetId);
@@ -139,6 +186,8 @@ export default function Home() {
     const rect = el.getBoundingClientRect();
     const y = rect.top + window.scrollY - headerOffset;
 
+    setActiveDinoId(targetId);
+    setIsSummaryOpen(false);
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
 
@@ -153,6 +202,107 @@ export default function Home() {
 
   return (
     <>
+      {isSummaryOpen && (
+        <div
+          className="summary-modal-overlay"
+          onClick={() => setIsSummaryOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 95,
+            background: 'rgba(0,0,0,0.78)',
+            padding: 16,
+          }}
+        >
+          <div
+            onClick={(event) => event.stopPropagation()}
+            style={{
+              width: 'min(420px, 100%)',
+              maxHeight: 'calc(100vh - 32px)',
+              margin: '0 auto',
+              background: 'rgba(18,18,22,0.98)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: 20,
+              overflow: 'hidden',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.45)',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 12,
+                padding: '14px 16px',
+                borderBottom: '1px solid rgba(255,255,255,0.08)',
+              }}
+            >
+              <strong style={{ color: '#f5f5f7', fontSize: 16 }}>
+                Dinos List
+              </strong>
+
+              <button
+                type="button"
+                aria-label="Fechar sumario"
+                onClick={() => setIsSummaryOpen(false)}
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 999,
+                  border: '1px solid rgba(255,255,255,0.16)',
+                  background: 'rgba(255,255,255,0.06)',
+                  color: '#fff',
+                  fontSize: 26,
+                  lineHeight: 1,
+                  cursor: 'pointer',
+                }}
+              >
+                ×
+              </button>
+            </div>
+
+            <div
+              style={{
+                padding: 16,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 8,
+                maxHeight: 'calc(100vh - 110px)',
+                overflowY: 'auto',
+              }}
+            >
+              {dinoIndex.map((dino) => {
+                const isActive = activeDinoId === dino.id;
+
+                return (
+                  <button
+                    key={dino.id}
+                    type="button"
+                    onClick={() => scrollToDino(dino.id)}
+                    style={{
+                      width: '100%',
+                      padding: '12px 14px',
+                      borderRadius: 14,
+                      textAlign: 'left',
+                      cursor: 'pointer',
+                      border: isActive
+                        ? '1px solid rgba(255,255,255,0.28)'
+                        : '1px solid rgba(255,255,255,0.10)',
+                      background: isActive
+                        ? 'rgba(255,255,255,0.12)'
+                        : 'rgba(255,255,255,0.04)',
+                      color: isActive ? '#ffffff' : 'rgba(255,255,255,0.82)',
+                    }}
+                  >
+                    {dino.name}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
       {expandedImage && (
         <div
           onClick={() => setExpandedImage(null)}
@@ -225,7 +375,7 @@ export default function Home() {
       >
         <div
           style={{
-            maxWidth: 1100,
+            maxWidth: 1360,
             margin: '0 auto',
             padding: '12px 16px',
             display: 'flex',
@@ -304,195 +454,321 @@ export default function Home() {
               </div>
             )}
           </form>
+
+          <button
+            type="button"
+            onClick={() => setIsSummaryOpen(true)}
+            className="summary-mobile-trigger"
+          >
+            Dinos List
+          </button>
         </div>
       </header>
 
       {/* ================= CONTENT ================= */}
-      <main
+      <div
+        className="page-shell"
         style={{
           padding: '18px 16px',
-          maxWidth: 1100,
+          maxWidth: 1360,
           margin: '0 auto',
-          background: '#0e0e10',
-          color: '#f5f5f7',
           minHeight: '100vh',
         }}
       >
-        {typedDinos.map((dino) => {
-          const dinoId = toId(dino.dino);
+        <aside
+          className="dino-summary"
+          style={{
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.10)',
+            borderRadius: 18,
+            padding: 14,
+          }}
+        >
+          <strong
+            style={{
+              display: 'block',
+              color: '#f5f5f7',
+              fontSize: 15,
+              marginBottom: 12,
+            }}
+          >
+            Dinos List
+          </strong>
 
-          return (
-            <section
-              key={dino.dino}
-              id={dinoId}
-              style={{
-                marginBottom: 36,
-                paddingBottom: 20,
-                borderBottom: '1px solid rgba(255,255,255,0.08)',
-              }}
-            >
-              <h2
+          <nav className="dino-summary-nav">
+            {dinoIndex.map((dino) => {
+              const isActive = activeDinoId === dino.id;
+
+              return (
+                <button
+                  key={dino.id}
+                  type="button"
+                  onClick={() => scrollToDino(dino.id)}
+                  className="summary-button"
+                  style={{
+                    border: isActive
+                      ? '1px solid rgba(255,255,255,0.28)'
+                      : '1px solid rgba(255,255,255,0.10)',
+                    background: isActive
+                      ? 'rgba(255,255,255,0.12)'
+                      : 'rgba(255,255,255,0.04)',
+                    color: isActive ? '#ffffff' : 'rgba(255,255,255,0.78)',
+                    boxShadow: isActive
+                      ? 'inset 0 0 0 1px rgba(255,255,255,0.06)'
+                      : 'none',
+                  }}
+                >
+                  {dino.name}
+                </button>
+              );
+            })}
+          </nav>
+        </aside>
+
+        <main
+          style={{
+            background: '#0e0e10',
+            color: '#f5f5f7',
+            minWidth: 0,
+          }}
+        >
+          {typedDinos.map((dino) => {
+            const dinoId = toId(dino.dino);
+
+            return (
+              <section
+                key={dino.dino}
+                id={dinoId}
                 style={{
-                  textTransform: 'capitalize',
-                  fontSize: 26,
-                  marginBottom: 10,
+                  marginBottom: 36,
+                  paddingBottom: 20,
+                  borderBottom: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                {dino.dino}
-              </h2>
+                <h2
+                  style={{
+                    textTransform: 'capitalize',
+                    fontSize: 26,
+                    marginBottom: 10,
+                  }}
+                >
+                  {dino.dino}
+                </h2>
 
-              <div
-                style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.10)',
-                  borderRadius: 18,
-                  padding: 12,
-                }}
-              >
-                {dino.capa && (
-                  <div
-                    style={{
-                      position: 'relative',
-                      width: '100%',
-                      height: 320,
-                      borderRadius: 14,
-                      overflow: 'hidden',
-                      background: 'rgba(0,0,0,0.35)',
-                      marginBottom: 18,
-                    }}
-                  >
-                    <Image
-                      src={dino.capa}
-                      alt={`${dino.dino} capa`}
-                      fill
-                      style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                      }}
-                    />
-                  </div>
-                )}
-
-                {Object.entries(dino.builds).map(([buildKey, buildData]) => {
-                  const labels = getPriceLabels(
-                    buildData.isEgg ? 'Egg' : 'Embryo'
-                  );
-
-                  const pricedItems = priceOrder
-                    .map((key) => [key, buildData.price[key]] as const)
-                    .filter(([, value]) => value > 0);
-
-                  return (
+                <div
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.10)',
+                    borderRadius: 18,
+                    padding: 12,
+                  }}
+                >
+                  {dino.capa && (
                     <div
-                      key={buildKey}
                       style={{
-                        marginTop: 18,
-                        paddingLeft: 14,
-                        borderLeft: '3px solid rgba(255,255,255,0.12)',
+                        position: 'relative',
+                        width: '100%',
+                        height: 320,
+                        borderRadius: 14,
+                        overflow: 'hidden',
+                        background: 'rgba(0,0,0,0.35)',
+                        marginBottom: 18,
                       }}
                     >
-                      <h3 style={{ textTransform: 'capitalize' }}>
-                        <strong>{buildKey}</strong>
-                      </h3>
-
-                      {/* Description */}
-                      {buildData.description && (
-                        <p
-                          style={{
-                            marginTop: 8,
-                            color: '#c7c7cf',
-                            fontSize: 14,
-                          }}
-                        >
-                          <b className="font-bold">Description:</b>{' '}
-                          {buildData.description}
-                        </p>
-                      )}
-
-                      {/* Prices */}
-                      {pricedItems.length > 0 && (
-                        <div style={{ marginTop: 8 }}>
-                          <strong>Prices:</strong>
-                          <ul style={{ marginTop: 6, color: '#c7c7cf' }}>
-                            {pricedItems.map(([priceKey, priceValue]) => (
-                              <li key={priceKey}>
-                                {labels[priceKey]}:{' '}
-                                <strong>{usd.format(priceValue)}</strong>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Variants */}
-                      <div
+                      <Image
+                        src={dino.capa}
+                        alt={`${dino.dino} capa`}
+                        fill
                         style={{
-                          display: 'grid',
-                          gridTemplateColumns:
-                            'repeat(auto-fit, minmax(260px, 1fr))',
-                          gap: 14,
-                          marginTop: 14,
+                          objectFit: 'contain',
+                          objectPosition: 'center',
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {Object.entries(dino.builds).map(([buildKey, buildData]) => {
+                    const labels = getPriceLabels(
+                      buildData.isEgg ? 'Egg' : 'Embryo'
+                    );
+
+                    const pricedItems = priceOrder
+                      .map((key) => [key, buildData.price[key]] as const)
+                      .filter(([, value]) => value > 0);
+
+                    return (
+                      <div
+                        key={buildKey}
+                        style={{
+                          marginTop: 18,
+                          paddingLeft: 14,
+                          borderLeft: '3px solid rgba(255,255,255,0.12)',
                         }}
                       >
-                        {buildData.variantes.map((variant) => (
-                          <figure
-                            key={`${buildKey}-${variant.variant}`}
+                        <h3 style={{ textTransform: 'capitalize' }}>
+                          <strong>{buildKey}</strong>
+                        </h3>
+
+                        {/* Description */}
+                        {buildData.description && (
+                          <p
                             style={{
-                              background: 'rgba(255,255,255,0.04)',
-                              border: '1px solid rgba(255,255,255,0.10)',
-                              borderRadius: 16,
-                              padding: 10,
+                              marginTop: 8,
+                              color: '#c7c7cf',
+                              fontSize: 14,
                             }}
                           >
-                            <div
-                              onClick={() =>
-                                setExpandedImage({
-                                  src: variant.fotos,
-                                  alt: `${dino.dino} ${buildKey} ${variant.variant}`,
-                                })
-                              }
-                              style={{
-                                position: 'relative',
-                                width: '100%',
-                                height: 230,
-                                borderRadius: 12,
-                                overflow: 'hidden',
-                                background: 'rgba(0,0,0,0.35)',
-                                cursor: 'zoom-in',
-                              }}
-                            >
-                              <Image
-                                src={variant.fotos}
-                                alt={`${dino.dino} ${buildKey} ${variant.variant}`}
-                                fill
-                                style={{
-                                  objectFit: 'contain',
-                                  objectPosition: 'center',
-                                }}
-                              />
-                            </div>
+                            <b className="font-bold">Description:</b>{' '}
+                            {buildData.description}
+                          </p>
+                        )}
 
-                            <figcaption
+                        {/* Prices */}
+                        {pricedItems.length > 0 && (
+                          <div style={{ marginTop: 8 }}>
+                            <strong>Prices:</strong>
+                            <ul style={{ marginTop: 6, color: '#c7c7cf' }}>
+                              {pricedItems.map(([priceKey, priceValue]) => (
+                                <li key={priceKey}>
+                                  {labels[priceKey]}:{' '}
+                                  <strong>{usd.format(priceValue)}</strong>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {/* Variants */}
+                        <div
+                          style={{
+                            display: 'grid',
+                            gridTemplateColumns:
+                              'repeat(auto-fit, minmax(260px, 1fr))',
+                            gap: 14,
+                            marginTop: 14,
+                          }}
+                        >
+                          {buildData.variantes.map((variant) => (
+                            <figure
+                              key={`${buildKey}-${variant.variant}`}
                               style={{
-                                textAlign: 'center',
-                                marginTop: 8,
-                                fontSize: 13,
-                                color: 'rgba(255,255,255,0.70)',
+                                background: 'rgba(255,255,255,0.04)',
+                                border: '1px solid rgba(255,255,255,0.10)',
+                                borderRadius: 16,
+                                padding: 10,
                               }}
                             >
-                              Variant: {variant.variant}
-                            </figcaption>
-                          </figure>
-                        ))}
+                              <div
+                                onClick={() =>
+                                  setExpandedImage({
+                                    src: variant.fotos,
+                                    alt: `${dino.dino} ${buildKey} ${variant.variant}`,
+                                  })
+                                }
+                                style={{
+                                  position: 'relative',
+                                  width: '100%',
+                                  height: 230,
+                                  borderRadius: 12,
+                                  overflow: 'hidden',
+                                  background: 'rgba(0,0,0,0.35)',
+                                  cursor: 'zoom-in',
+                                }}
+                              >
+                                <Image
+                                  src={variant.fotos}
+                                  alt={`${dino.dino} ${buildKey} ${variant.variant}`}
+                                  fill
+                                  style={{
+                                    objectFit: 'contain',
+                                    objectPosition: 'center',
+                                  }}
+                                />
+                              </div>
+
+                              <figcaption
+                                style={{
+                                  textAlign: 'center',
+                                  marginTop: 8,
+                                  fontSize: 13,
+                                  color: 'rgba(255,255,255,0.70)',
+                                }}
+                              >
+                                Variant: {variant.variant}
+                              </figcaption>
+                            </figure>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          );
-        })}
-      </main>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })}
+        </main>
+      </div>
+
+      <style jsx>{`
+        .page-shell {
+          display: grid;
+          grid-template-columns: 260px minmax(0, 1fr);
+          gap: 24px;
+          align-items: start;
+        }
+
+        .dino-summary {
+          position: sticky;
+          top: 86px;
+          max-height: calc(100vh - 106px);
+          overflow-y: auto;
+        }
+
+        .summary-mobile-trigger {
+          display: none;
+          padding: 12px 14px;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: rgba(255, 255, 255, 0.06);
+          color: #f5f5f7;
+          text-align: left;
+          cursor: pointer;
+        }
+
+        .dino-summary-nav {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .summary-button {
+          width: 100%;
+          padding: 10px 12px;
+          border-radius: 12px;
+          text-align: left;
+          cursor: pointer;
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            color 0.2s ease;
+        }
+
+        @media (max-width: 960px) {
+          .page-shell {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .dino-summary {
+            display: none;
+          }
+
+          .summary-mobile-trigger {
+            display: block;
+            flex: 1 1 100%;
+          }
+        }
+      `}</style>
     </>
   );
 }
