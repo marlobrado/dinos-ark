@@ -1,0 +1,382 @@
+{
+  "aberrant gigantopithecus": {
+    "damage": {
+      "description": "Um lindo e adorável gigantopithecus, mas com um lado mais agressivo. Ele é tão forte quanto um gigantopithecus normal, mas tem uma mordida mais poderosa e pode causar mais dano aos inimigos.",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    },
+    "weight": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "aberrant megalosaurus": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "basilisk": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "bronto": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    },
+    "weight": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "carcharodontossauro": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    },
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "ceratosaurus": {
+    "kibble": {
+      "description": "Kill this dinosaur in the Bio-Grinder to get Extraordinary Kibble.",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "deinosuchus": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    },
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "desmodus": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "dreadnoughtus": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "gasbag": {
+    "weight": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "gigantoraptor": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "karkinos": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "managarmr": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "megatherium": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "mosasaurus": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    },
+    "damage": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "ovis": {
+    "hp": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "snow owl": {
+    "stamina": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "tek giga": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "tek rex": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "thylacoleo": {
+    "damage": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    },
+    "hp": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "tusoteuthis": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  },
+  "vulture": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 8,
+        "egg-m-or-f": 5,
+        "baby-pair": 7,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 10,
+        "clone-pair": 15
+      }
+    }
+  }
+}

@@ -1,101 +1,404 @@
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
+import { useMemo, useRef, useState } from 'react';
+import { dinos } from '@/public/images';
+
+type Price = {
+  'egg-pair': number;
+  'egg-m-or-f': number;
+  'baby-pair': number;
+  'baby-m-or-f': number;
+  'clone-m-or-f': number;
+  'clone-pair': number;
+};
+
+type Variant = {
+  variant: string;
+  fotos: string;
+};
+
+type BuildData = {
+  description: string;
+  isEgg: boolean;
+  price: Price;
+  variantes: Variant[];
+};
+
+type Dino = {
+  dino: string;
+  capa?: string;
+  builds: Record<string, BuildData>;
+};
+
+const typedDinos = dinos as unknown as Dino[];
+
+/* ===============================
+   Helpers
+================================ */
+
+// Safe DOM id
+function toId(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9\-]/g, '');
+}
+
+// USD formatter ($7.00)
+const usd = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+// Price labels (Egg vs Embryo)
+function getPriceLabels(mode: 'Egg' | 'Embryo'): Record<string, string> {
+  return {
+    'egg-pair': `${mode} pair`,
+    'egg-m-or-f': `${mode} M or F`,
+    'baby-pair': 'Baby pair',
+    'baby-m-or-f': 'Baby M or F',
+    'clone-m-or-f': 'Clone M or F',
+    'clone-pair': 'Clone pair',
+  };
+}
+
+// Stable price order
+const priceOrder = [
+  'egg-pair',
+  'egg-m-or-f',
+  'baby-pair',
+  'baby-m-or-f',
+  'clone-m-or-f',
+  'clone-pair',
+] as const;
+
+/* ===============================
+   Component
+================================ */
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [query, setQuery] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const dinoIndex = useMemo(
+    () =>
+      typedDinos.map((d) => ({
+        name: d.dino,
+        id: toId(d.dino),
+      })),
+    []
+  );
+
+  const matches = useMemo(() => {
+    const q = query.toLowerCase().trim();
+    if (!q) return [];
+    return dinoIndex
+      .filter((d) => d.name.toLowerCase().includes(q))
+      .slice(0, 8);
+  }, [query, dinoIndex]);
+
+  function scrollToDino(targetId: string) {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+
+    const headerOffset = 90;
+    const rect = el.getBoundingClientRect();
+    const y = rect.top + window.scrollY - headerOffset;
+
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (matches.length > 0) {
+      scrollToDino(matches[0].id);
+      setIsFocused(false);
+      inputRef.current?.blur();
+    }
+  }
+
+  return (
+    <>
+      {/* ================= HEADER ================= */}
+      <header
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
+          background: 'rgba(11, 11, 15, 0.92)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          borderBottom: '1px solid rgba(255,255,255,0.10)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: '0 auto',
+            padding: '12px 16px',
+            display: 'flex',
+            gap: 12,
+            alignItems: 'center',
+            flexWrap: 'wrap',
+          }}
+        >
+          <strong style={{ color: '#f5f5f7', fontSize: 18 }}>
+            Dino Builds
+          </strong>
+
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              flex: '1 1 280px',
+              minWidth: 240,
+              position: 'relative',
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <input
+              ref={inputRef}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setTimeout(() => setIsFocused(false), 150)}
+              placeholder="Search dino... (Enter to jump)"
+              style={{
+                width: '100%',
+                padding: '10px 12px',
+                borderRadius: 12,
+                border: '1px solid rgba(255,255,255,0.16)',
+                background: 'rgba(255,255,255,0.06)',
+                color: '#f5f5f7',
+                outline: 'none',
+              }}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+            {isFocused && matches.length > 0 && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 8px)',
+                  left: 0,
+                  right: 0,
+                  background: 'rgba(18,18,22,0.98)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: 14,
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.55)',
+                }}
+              >
+                {matches.map((m) => (
+                  <button
+                    key={m.id}
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => {
+                      scrollToDino(m.id);
+                      setIsFocused(false);
+                      inputRef.current?.blur();
+                    }}
+                    style={{
+                      width: '100%',
+                      textAlign: 'left',
+                      padding: '10px 12px',
+                      border: 'none',
+                      background: 'transparent',
+                      cursor: 'pointer',
+                      color: '#f5f5f7',
+                    }}
+                  >
+                    {m.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </form>
         </div>
+      </header>
+
+      {/* ================= CONTENT ================= */}
+      <main
+        style={{
+          padding: '18px 16px',
+          maxWidth: 1100,
+          margin: '0 auto',
+          background: '#0e0e10',
+          color: '#f5f5f7',
+          minHeight: '100vh',
+        }}
+      >
+        {typedDinos.map((dino) => {
+          const dinoId = toId(dino.dino);
+
+          return (
+            <section
+              key={dino.dino}
+              id={dinoId}
+              style={{
+                marginBottom: 36,
+                paddingBottom: 20,
+                borderBottom: '1px solid rgba(255,255,255,0.08)',
+              }}
+            >
+              <h2
+                style={{
+                  textTransform: 'capitalize',
+                  fontSize: 26,
+                  marginBottom: 10,
+                }}
+              >
+                {dino.dino}
+              </h2>
+
+              <div
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  borderRadius: 18,
+                  padding: 12,
+                }}
+              >
+                {dino.capa && (
+                  <div
+                    style={{
+                      position: 'relative',
+                      width: '100%',
+                      height: 320,
+                      borderRadius: 14,
+                      overflow: 'hidden',
+                      background: 'rgba(0,0,0,0.35)',
+                      marginBottom: 18,
+                    }}
+                  >
+                    <Image
+                      src={dino.capa}
+                      alt={`${dino.dino} capa`}
+                      fill
+                      style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                      }}
+                    />
+                  </div>
+                )}
+
+                {Object.entries(dino.builds).map(([buildKey, buildData]) => {
+                  const labels = getPriceLabels(
+                    buildData.isEgg ? 'Egg' : 'Embryo'
+                  );
+
+                  const pricedItems = priceOrder
+                    .map((key) => [key, buildData.price[key]] as const)
+                    .filter(([, value]) => value > 0);
+
+                  return (
+                    <div
+                      key={buildKey}
+                      style={{
+                        marginTop: 18,
+                        paddingLeft: 14,
+                        borderLeft: '3px solid rgba(255,255,255,0.12)',
+                      }}
+                    >
+                      <h3 style={{ textTransform: 'capitalize' }}>
+                        <strong>{buildKey}</strong>
+                      </h3>
+
+                      {/* Description */}
+                      {buildData.description && (
+                        <p
+                          style={{
+                            marginTop: 8,
+                            color: '#c7c7cf',
+                            fontSize: 14,
+                          }}
+                        >
+                          <b className="font-bold">Description:</b>{' '}
+                          {buildData.description}
+                        </p>
+                      )}
+
+                      {/* Prices */}
+                      {pricedItems.length > 0 && (
+                        <div style={{ marginTop: 8 }}>
+                          <strong>Prices:</strong>
+                          <ul style={{ marginTop: 6, color: '#c7c7cf' }}>
+                            {pricedItems.map(([priceKey, priceValue]) => (
+                              <li key={priceKey}>
+                                {labels[priceKey]}:{' '}
+                                <strong>{usd.format(priceValue)}</strong>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Variants */}
+                      <div
+                        style={{
+                          display: 'grid',
+                          gridTemplateColumns:
+                            'repeat(auto-fit, minmax(260px, 1fr))',
+                          gap: 14,
+                          marginTop: 14,
+                        }}
+                      >
+                        {buildData.variantes.map((variant) => (
+                          <figure
+                            key={`${buildKey}-${variant.variant}`}
+                            style={{
+                              background: 'rgba(255,255,255,0.04)',
+                              border: '1px solid rgba(255,255,255,0.10)',
+                              borderRadius: 16,
+                              padding: 10,
+                            }}
+                          >
+                            <div
+                              style={{
+                                position: 'relative',
+                                width: '100%',
+                                height: 230,
+                                borderRadius: 12,
+                                overflow: 'hidden',
+                                background: 'rgba(0,0,0,0.35)',
+                              }}
+                            >
+                              <Image
+                                src={variant.fotos}
+                                alt={`${dino.dino} ${buildKey} ${variant.variant}`}
+                                fill
+                                style={{
+                                  objectFit: 'contain',
+                                  objectPosition: 'center',
+                                }}
+                              />
+                            </div>
+
+                            <figcaption
+                              style={{
+                                textAlign: 'center',
+                                marginTop: 8,
+                                fontSize: 13,
+                                color: 'rgba(255,255,255,0.70)',
+                              }}
+                            >
+                              Variant: {variant.variant}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
