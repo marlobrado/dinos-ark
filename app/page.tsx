@@ -93,6 +93,7 @@ export default function Home() {
   const [expandedImage, setExpandedImage] = useState<ExpandedImage | null>(
     null
   );
+  const headerRef = useRef<HTMLElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const dinoIndex = useMemo(
@@ -182,7 +183,9 @@ export default function Home() {
     const el = document.getElementById(targetId);
     if (!el) return;
 
-    const headerOffset = 90;
+    const headerHeight =
+      headerRef.current?.getBoundingClientRect().height ?? 90;
+    const headerOffset = headerHeight + 16;
     const rect = el.getBoundingClientRect();
     const y = rect.top + window.scrollY - headerOffset;
 
@@ -363,6 +366,7 @@ export default function Home() {
 
       {/* ================= HEADER ================= */}
       <header
+        ref={headerRef}
         style={{
           position: 'sticky',
           top: 0,
