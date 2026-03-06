@@ -253,6 +253,7 @@ export const dinos = [
   },
   {
     "dino": "carcharodontossauro",
+    "capa": "/assets/carcharodontossauro/image.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -732,6 +733,30 @@ export const dinos = [
     }
   },
   {
+    "dino": "griffin",
+    "capa": "/assets/griffin/griffin.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "random",
+            "fotos": "/assets/griffin/balanced/[random]-balanced-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "karkinos",
     "builds": {
       "balanced": {
@@ -829,6 +854,30 @@ export const dinos = [
           {
             "variant": "dp",
             "fotos": "/assets/managarmr/balanced/[dp]-balanced-false.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "mantis",
+    "capa": "/assets/mantis/Sem título.jpg",
+    "builds": {
+      "damage": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "dp",
+            "fotos": "/assets/mantis/damage/[dp]-damage-true.png"
           }
         ]
       }

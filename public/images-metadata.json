@@ -271,6 +271,20 @@
       }
     }
   },
+  "griffin": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
   "karkinos": {
     "balanced": {
       "description": "",
@@ -310,6 +324,20 @@
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
+      }
+    }
+  },
+  "mantis": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
