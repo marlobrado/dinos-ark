@@ -4,12 +4,12 @@ export const dinos = [
     "capa": "/assets/aberrant gigantopithecus/image.png",
     "builds": {
       "damage": {
-        "description": "Um lindo e adorável gigantopithecus, mas com um lado mais agressivo. Ele é tão forte quanto um gigantopithecus normal, mas tem uma mordida mais poderosa e pode causar mais dano aos inimigos.",
+        "description": "",
         "isEgg": false,
         "price": {
           "egg-pair": 8,
           "egg-m-or-f": 5,
-          "baby-pair": 7,
+          "baby-pair": 0,
           "baby-m-or-f": 0,
           "clone-m-or-f": 10,
           "clone-pair": 15
@@ -27,7 +27,7 @@ export const dinos = [
         "price": {
           "egg-pair": 8,
           "egg-m-or-f": 5,
-          "baby-pair": 7,
+          "baby-pair": 0,
           "baby-m-or-f": 0,
           "clone-m-or-f": 10,
           "clone-pair": 15
@@ -47,11 +47,11 @@ export const dinos = [
     "builds": {
       "balanced": {
         "description": "",
-        "isEgg": false,
+        "isEgg": true,
         "price": {
           "egg-pair": 8,
           "egg-m-or-f": 5,
-          "baby-pair": 7,
+          "baby-pair": 0,
           "baby-m-or-f": 0,
           "clone-m-or-f": 10,
           "clone-pair": 15
@@ -59,15 +59,15 @@ export const dinos = [
         "variantes": [
           {
             "variant": "139",
-            "fotos": "/assets/aberrant megalosaurus/balanced/[139]-balanced-false.png"
+            "fotos": "/assets/aberrant megalosaurus/balanced/[139]-balanced-true.png"
           },
           {
             "variant": "180",
-            "fotos": "/assets/aberrant megalosaurus/balanced/[180]-balanced-false.png"
+            "fotos": "/assets/aberrant megalosaurus/balanced/[180]-balanced-true.png"
           },
           {
             "variant": "250",
-            "fotos": "/assets/aberrant megalosaurus/balanced/[250]-balanced-false.png"
+            "fotos": "/assets/aberrant megalosaurus/balanced/[250]-balanced-true.png"
           }
         ]
       }
@@ -81,8 +81,8 @@ export const dinos = [
         "description": "",
         "isEgg": true,
         "price": {
-          "egg-pair": 0,
-          "egg-m-or-f": 0,
+          "egg-pair": 2,
+          "egg-m-or-f": 2,
           "baby-pair": 0,
           "baby-m-or-f": 0,
           "clone-m-or-f": 0,
@@ -415,6 +415,7 @@ export const dinos = [
   },
   {
     "dino": "ceratosaurus",
+    "capa": "/assets/ceratosaurus/image.png",
     "builds": {
       "kibble": {
         "description": "Kill this dinosaur in the Bio-Grinder to get Extraordinary Kibble.",
@@ -503,6 +504,7 @@ export const dinos = [
   },
   {
     "dino": "desmodus",
+    "capa": "/assets/desmodus/image.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -932,6 +934,7 @@ export const dinos = [
   },
   {
     "dino": "mosasaurus",
+    "capa": "/assets/mosasaurus/image.png",
     "builds": {
       "balanced": {
         "description": "",

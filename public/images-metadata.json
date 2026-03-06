@@ -1,12 +1,12 @@
 {
   "aberrant gigantopithecus": {
     "damage": {
-      "description": "Um lindo e adorável gigantopithecus, mas com um lado mais agressivo. Ele é tão forte quanto um gigantopithecus normal, mas tem uma mordida mais poderosa e pode causar mais dano aos inimigos.",
+      "description": "",
       "isEgg": false,
       "price": {
         "egg-pair": 8,
         "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
@@ -18,7 +18,7 @@
       "price": {
         "egg-pair": 8,
         "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
@@ -28,11 +28,11 @@
   "aberrant megalosaurus": {
     "balanced": {
       "description": "",
-      "isEgg": false,
+      "isEgg": true,
       "price": {
         "egg-pair": 8,
         "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
@@ -44,8 +44,8 @@
       "description": "",
       "isEgg": true,
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 2,
+        "egg-m-or-f": 2,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
