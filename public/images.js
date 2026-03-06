@@ -74,6 +74,110 @@ export const dinos = [
     }
   },
   {
+    "dino": "aberrant oviraptor",
+    "capa": "/assets/aberrant oviraptor/oviraptor.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "01",
+            "fotos": "/assets/aberrant oviraptor/balanced/[01]-balanced-true.png"
+          },
+          {
+            "variant": "02",
+            "fotos": "/assets/aberrant oviraptor/balanced/[02]-balanced-true.png"
+          },
+          {
+            "variant": "05",
+            "fotos": "/assets/aberrant oviraptor/balanced/[05]-balanced-true.png"
+          },
+          {
+            "variant": "36",
+            "fotos": "/assets/aberrant oviraptor/balanced/[36]-balanced-true.png"
+          },
+          {
+            "variant": "68",
+            "fotos": "/assets/aberrant oviraptor/balanced/[68]-balanced-true.png"
+          },
+          {
+            "variant": "79",
+            "fotos": "/assets/aberrant oviraptor/balanced/[79]-balanced-true.png"
+          },
+          {
+            "variant": "dp",
+            "fotos": "/assets/aberrant oviraptor/balanced/[dp]-balanced-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "armadoggo",
+    "capa": "/assets/armadoggo/doggo.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": false,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "203",
+            "fotos": "/assets/armadoggo/balanced/[203]-balancede-false.png"
+          },
+          {
+            "variant": "245",
+            "fotos": "/assets/armadoggo/balanced/[245]-balancede-false.png"
+          },
+          {
+            "variant": "68",
+            "fotos": "/assets/armadoggo/balanced/[68]-balancede-false.png"
+          },
+          {
+            "variant": "batman",
+            "fotos": "/assets/armadoggo/balanced/[batman]-balancede-false.png"
+          },
+          {
+            "variant": "cyber",
+            "fotos": "/assets/armadoggo/balanced/[cyber]-balancede-false.png"
+          },
+          {
+            "variant": "dp",
+            "fotos": "/assets/armadoggo/balanced/[dp]-balancede-false.png"
+          },
+          {
+            "variant": "galaxy",
+            "fotos": "/assets/armadoggo/balanced/[galaxy]-balancede-false.png"
+          },
+          {
+            "variant": "joker",
+            "fotos": "/assets/armadoggo/balanced/[joker]-balancede-false.png"
+          },
+          {
+            "variant": "monster",
+            "fotos": "/assets/armadoggo/balanced/[monster]-balancede-false.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "basilisk",
     "capa": "/assets/basilisk/basilisk.jpg",
     "builds": {
@@ -107,6 +211,7 @@ export const dinos = [
   },
   {
     "dino": "bronto",
+    "capa": "/assets/bronto/image.png",
     "builds": {
       "damage": {
         "description": "",
@@ -423,7 +528,32 @@ export const dinos = [
     }
   },
   {
+    "dino": "dire bear",
+    "capa": "/assets/dire bear/dire bear.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": false,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "245",
+            "fotos": "/assets/dire bear/balanced/[245]-balanced-false.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "dreadnoughtus",
+    "capa": "/assets/dreadnoughtus/image.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -460,6 +590,30 @@ export const dinos = [
           {
             "variant": "dp",
             "fotos": "/assets/dreadnoughtus/balanced/[dp]-balanced-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "dung beetle",
+    "capa": "/assets/dung beetle/dung.jpg",
+    "builds": {
+      "high level": {
+        "description": "",
+        "isEgg": false,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 7,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "random color",
+            "fotos": "/assets/dung beetle/high level/[random color]-highlevel.png"
           }
         ]
       }
@@ -769,54 +923,6 @@ export const dinos = [
     }
   },
   {
-    "dino": "oviraptor",
-    "capa": "/assets/oviraptor/oviraptor.jpg",
-    "builds": {
-      "balanced": {
-        "description": "",
-        "isEgg": true,
-        "price": {
-          "egg-pair": 0,
-          "egg-m-or-f": 0,
-          "baby-pair": 0,
-          "baby-m-or-f": 0,
-          "clone-m-or-f": 0,
-          "clone-pair": 0
-        },
-        "variantes": [
-          {
-            "variant": "01",
-            "fotos": "/assets/oviraptor/balanced/[01]-balanced-true.png"
-          },
-          {
-            "variant": "02",
-            "fotos": "/assets/oviraptor/balanced/[02]-balanced-true.png"
-          },
-          {
-            "variant": "05",
-            "fotos": "/assets/oviraptor/balanced/[05]-balanced-true.png"
-          },
-          {
-            "variant": "36",
-            "fotos": "/assets/oviraptor/balanced/[36]-balanced-true.png"
-          },
-          {
-            "variant": "68",
-            "fotos": "/assets/oviraptor/balanced/[68]-balanced-true.png"
-          },
-          {
-            "variant": "79",
-            "fotos": "/assets/oviraptor/balanced/[79]-balanced-true.png"
-          },
-          {
-            "variant": "dp",
-            "fotos": "/assets/oviraptor/balanced/[dp]-balanced-true.png"
-          }
-        ]
-      }
-    }
-  },
-  {
     "dino": "ovis",
     "builds": {
       "hp": {
@@ -834,6 +940,48 @@ export const dinos = [
           {
             "variant": "normal",
             "fotos": "/assets/ovis/hp/[normal]-hp-false.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "pyromane",
+    "capa": "/assets/pyromane/pyromane.jpg",
+    "builds": {
+      "damage": {
+        "description": "",
+        "isEgg": false,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "random",
+            "fotos": "/assets/pyromane/damage/[random]-damage-false.png"
+          }
+        ]
+      },
+      "weight": {
+        "description": "",
+        "isEgg": false,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "random",
+            "fotos": "/assets/pyromane/weight/[random]-weight-false.png"
           }
         ]
       }
@@ -1034,6 +1182,30 @@ export const dinos = [
     }
   },
   {
+    "dino": "therizinosaurs",
+    "capa": "/assets/therizinosaurs/theriz.jpg",
+    "builds": {
+      "damage": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "79",
+            "fotos": "/assets/therizinosaurs/damage/[79]-damage-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "thylacoleo",
     "builds": {
       "damage": {
@@ -1096,6 +1268,38 @@ export const dinos = [
           {
             "variant": "batman",
             "fotos": "/assets/tusoteuthis/balanced/[batman]-balanced-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dino": "veilwyn",
+    "capa": "/assets/veilwyn/veil.jpg",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": false,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "79",
+            "fotos": "/assets/veilwyn/balanced/[79]-balanced-false.png"
+          },
+          {
+            "variant": "cc",
+            "fotos": "/assets/veilwyn/balanced/[cc]-balanced-false.png"
+          },
+          {
+            "variant": "cyber",
+            "fotos": "/assets/veilwyn/balanced/[cyber]-balanced-false.png"
           }
         ]
       }

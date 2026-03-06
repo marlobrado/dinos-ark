@@ -39,6 +39,34 @@
       }
     }
   },
+  "aberrant oviraptor": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "armadoggo": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
   "basilisk": {
     "damage": {
       "description": "",
@@ -173,6 +201,20 @@
       }
     }
   },
+  "dire bear": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
   "dreadnoughtus": {
     "balanced": {
       "description": "",
@@ -184,6 +226,20 @@
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
+      }
+    }
+  },
+  "dung beetle": {
+    "high level": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 7,
+        "clone-pair": 0
       }
     }
   },
@@ -297,20 +353,6 @@
       }
     }
   },
-  "oviraptor": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
-        "baby-pair": 0,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 0,
-        "clone-pair": 0
-      }
-    }
-  },
   "ovis": {
     "hp": {
       "description": "",
@@ -322,6 +364,32 @@
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
+      }
+    }
+  },
+  "pyromane": {
+    "damage": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    },
+    "weight": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
@@ -381,6 +449,20 @@
       }
     }
   },
+  "therizinosaurs": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
   "thylacoleo": {
     "damage": {
       "description": "",
@@ -418,6 +500,20 @@
         "baby-m-or-f": 0,
         "clone-m-or-f": 10,
         "clone-pair": 15
+      }
+    }
+  },
+  "veilwyn": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
