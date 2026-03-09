@@ -569,6 +569,12 @@ export default function Home() {
                 >
                   {dino.capa && (
                     <div
+                      onClick={() =>
+                        setExpandedImage({
+                          src: dino.capa!,
+                          alt: `${dino.dino} capa`,
+                        })
+                      }
                       style={{
                         position: 'relative',
                         width: '100%',
@@ -577,6 +583,7 @@ export default function Home() {
                         overflow: 'hidden',
                         background: 'rgba(0,0,0,0.35)',
                         marginBottom: 18,
+                        cursor: 'zoom-in',
                       }}
                     >
                       <Image

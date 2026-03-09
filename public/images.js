@@ -1,7 +1,7 @@
 export const dinos = [
   {
     "dino": "aberrant gigantopithecus",
-    "capa": "/assets/aberrant gigantopithecus/image.png",
+    "capa": "/assets/aberrant gigantopithecus/aberrant gigantophitecus.png",
     "builds": {
       "damage": {
         "description": "",
@@ -43,7 +43,7 @@ export const dinos = [
   },
   {
     "dino": "aberrant megalosaurus",
-    "capa": "/assets/aberrant megalosaurus/image.png",
+    "capa": "/assets/aberrant megalosaurus/aberrant megalosaurus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -75,7 +75,7 @@ export const dinos = [
   },
   {
     "dino": "aberrant oviraptor",
-    "capa": "/assets/aberrant oviraptor/oviraptor.jpg",
+    "capa": "/assets/aberrant oviraptor/aberrant oviraptor.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -123,7 +123,7 @@ export const dinos = [
   },
   {
     "dino": "armadoggo",
-    "capa": "/assets/armadoggo/doggo.jpg",
+    "capa": "/assets/armadoggo/Armadoggo.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -179,7 +179,7 @@ export const dinos = [
   },
   {
     "dino": "basilisk",
-    "capa": "/assets/basilisk/basilisk.jpg",
+    "capa": "/assets/basilisk/Basilisk.png",
     "builds": {
       "damage": {
         "description": "",
@@ -211,7 +211,7 @@ export const dinos = [
   },
   {
     "dino": "bronto",
-    "capa": "/assets/bronto/image.png",
+    "capa": "/assets/bronto/Brontosaurus.png",
     "builds": {
       "damage": {
         "description": "",
@@ -253,7 +253,7 @@ export const dinos = [
   },
   {
     "dino": "carcharodontossauro",
-    "capa": "/assets/carcharodontossauro/image.png",
+    "capa": "/assets/carcharodontossauro/Carcharodontosaurus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -415,7 +415,7 @@ export const dinos = [
   },
   {
     "dino": "ceratosaurus",
-    "capa": "/assets/ceratosaurus/image.png",
+    "capa": "/assets/ceratosaurus/Ceratosaurus.png",
     "builds": {
       "kibble": {
         "description": "Kill this dinosaur in the Bio-Grinder to get Extraordinary Kibble.",
@@ -439,7 +439,7 @@ export const dinos = [
   },
   {
     "dino": "cosmos",
-    "capa": "/assets/cosmos/cosmos.jpg",
+    "capa": "/assets/cosmos/Jumping Spider.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -463,6 +463,7 @@ export const dinos = [
   },
   {
     "dino": "deinosuchus",
+    "capa": "/assets/deinosuchus/deinosuchus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -504,7 +505,7 @@ export const dinos = [
   },
   {
     "dino": "desmodus",
-    "capa": "/assets/desmodus/image.png",
+    "capa": "/assets/desmodus/Desmodus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -532,7 +533,7 @@ export const dinos = [
   },
   {
     "dino": "dire bear",
-    "capa": "/assets/dire bear/dire bear.jpg",
+    "capa": "/assets/dire bear/dire bear.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -556,7 +557,7 @@ export const dinos = [
   },
   {
     "dino": "dreadnoughtus",
-    "capa": "/assets/dreadnoughtus/image.png",
+    "capa": "/assets/dreadnoughtus/dreadnoughtus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -600,7 +601,7 @@ export const dinos = [
   },
   {
     "dino": "dung beetle",
-    "capa": "/assets/dung beetle/dung.jpg",
+    "capa": "/assets/dung beetle/dung beetle.png",
     "builds": {
       "high level": {
         "description": "",
@@ -624,6 +625,7 @@ export const dinos = [
   },
   {
     "dino": "fasolasuchus",
+    "capa": "/assets/fasolasuchus/Fasolasuchus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -647,7 +649,7 @@ export const dinos = [
   },
   {
     "dino": "gasbag",
-    "capa": "/assets/gasbag/image.png",
+    "capa": "/assets/gasbag/gasbag.png",
     "builds": {
       "weight": {
         "description": "",
@@ -723,7 +725,6 @@ export const dinos = [
   },
   {
     "dino": "gigantoraptor",
-    "capa": "/assets/gigantoraptor/image.png",
     "builds": {
       "damage": {
         "description": "",
