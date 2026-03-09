@@ -975,6 +975,33 @@ export const dinos = [
     }
   },
   {
+    "dino": "ossidon",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "Lucid Galaxy",
+            "fotos": "/assets/ossidon/balanced/[lucid galaxy]-balanced-true.png"
+          },
+          {
+            "variant": "Purple Goth",
+            "fotos": "/assets/ossidon/balanced/[purple goth]-balance-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "ovis",
     "builds": {
       "hp": {
@@ -1214,20 +1241,44 @@ export const dinos = [
         },
         "variantes": [
           {
-            "variant": "194",
-            "fotos": "/assets/tek rex/damage/[194]-damage-true.png"
-          },
-          {
-            "variant": "211",
-            "fotos": "/assets/tek rex/damage/[211]-damage-true.png"
-          },
-          {
             "variant": "245",
             "fotos": "/assets/tek rex/damage/[245]-damage-true.png"
           },
           {
             "variant": "79",
             "fotos": "/assets/tek rex/damage/[79]-damage-true.png"
+          },
+          {
+            "variant": "barbie",
+            "fotos": "/assets/tek rex/damage/[barbie]-damage-true.png"
+          },
+          {
+            "variant": "cyber",
+            "fotos": "/assets/tek rex/damage/[cyber]-damage-true.png"
+          },
+          {
+            "variant": "dp",
+            "fotos": "/assets/tek rex/damage/[dp]-damage-true.png"
+          },
+          {
+            "variant": "monster",
+            "fotos": "/assets/tek rex/damage/[monster]-damage-true.png"
+          },
+          {
+            "variant": "nightmare",
+            "fotos": "/assets/tek rex/damage/[nightmare]-damage-true.png"
+          },
+          {
+            "variant": "royal noir",
+            "fotos": "/assets/tek rex/damage/[royal noir]-damage-true.png"
+          },
+          {
+            "variant": "sunspot",
+            "fotos": "/assets/tek rex/damage/[sunspot]-damage-true.png"
+          },
+          {
+            "variant": "vader",
+            "fotos": "/assets/tek rex/damage/[vader]-damage-true.png"
           }
         ]
       }
