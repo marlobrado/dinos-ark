@@ -988,7 +988,7 @@ export const dinos = [
   },
   {
     "dino": "mosasaurus [f-c]",
-    "capa": "/assets/mosasaurus [f-c]/image.png",
+    "capa": "/assets/mosasaurus [f-c]/mosasaurus.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -1086,6 +1086,7 @@ export const dinos = [
   },
   {
     "dino": "pyromane [f-c]",
+    "capa": "/assets/pyromane [f-c]/Pyromane.png",
     "builds": {
       "damage": {
         "description": "",
@@ -1129,7 +1130,7 @@ export const dinos = [
   },
   {
     "dino": "rock drake [t-e]",
-    "capa": "/assets/rock drake [t-e]/Sem título.jpg",
+    "capa": "/assets/rock drake [t-e]/Rock Drake.jpg",
     "builds": {
       "balanced": {
         "description": "",
@@ -1420,6 +1421,7 @@ export const dinos = [
   },
   {
     "dino": "tusoteuthis [t-c]",
+    "capa": "/assets/tusoteuthis [t-c]/Tusoteuthis.png",
     "builds": {
       "balanced": {
         "description": "",
