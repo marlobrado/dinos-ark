@@ -1159,6 +1159,7 @@ export const dinos = [
   },
   {
     "dino": "snow owl [t-c]",
+    "capa": "/assets/snow owl [t-c]/Owl.png",
     "builds": {
       "stamina": {
         "description": "",
@@ -1292,6 +1293,7 @@ export const dinos = [
   },
   {
     "dino": "tek rex [t-c]",
+    "capa": "/assets/tek rex [t-c]/Tek Rex.png",
     "builds": {
       "damage": {
         "description": "",
@@ -1352,7 +1354,7 @@ export const dinos = [
   },
   {
     "dino": "therizinosaurs [t-h]",
-    "capa": "/assets/therizinosaurs [t-h]/theriz.jpg",
+    "capa": "/assets/therizinosaurs [t-h]/Therizinosaurus.png",
     "builds": {
       "damage": {
         "description": "",
@@ -1377,7 +1379,7 @@ export const dinos = [
   },
   {
     "dino": "thylacoleo [f-c]",
-    "capa": "/assets/thylacoleo [f-c]/image.png",
+    "capa": "/assets/thylacoleo [f-c]/Thylacoleo.png",
     "builds": {
       "damage": {
         "description": "",
@@ -1450,7 +1452,7 @@ export const dinos = [
   },
   {
     "dino": "veilwyn [f-c]",
-    "capa": "/assets/veilwyn [f-c]/veil.jpg",
+    "capa": "/assets/veilwyn [f-c]/Veilwyn.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -1483,6 +1485,7 @@ export const dinos = [
   },
   {
     "dino": "vulture [t-c]",
+    "capa": "/assets/vulture [t-c]/MENGAO.png",
     "builds": {
       "balanced": {
         "description": "",
