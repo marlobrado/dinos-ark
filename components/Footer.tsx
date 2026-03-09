@@ -1,24 +1,23 @@
 'use client';
 
+import { FaWhatsapp, FaTelegram, FaFacebook } from 'react-icons/fa';
+
 export function Footer() {
   const contacts = [
     {
       name: 'WhatsApp',
-      icon: '💬',
+      icon: <FaWhatsapp />,
       url: 'https://wa.me/5562981540735',
-      placeholder: true,
     },
     {
       name: 'Telegram',
-      icon: '✈️',
-      url: 'https://t.me/',
-      placeholder: true,
+      icon: <FaTelegram />,
+      url: 'https://t.me/seunometelegram',
     },
     {
       name: 'Facebook',
-      icon: '👍',
-      url: 'https://facebook.com/',
-      placeholder: true,
+      icon: <FaFacebook />,
+      url: 'https://facebook.com/seuperfil',
     },
   ];
 
@@ -81,18 +80,14 @@ export function Footer() {
                 border: '1px solid rgba(255,255,255,0.16)',
                 background: 'rgba(255,255,255,0.08)',
                 color: '#f5f5f7',
-                fontSize: 18,
+                fontSize: 20,
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 textDecoration: 'none',
-                opacity: contact.placeholder ? 0.5 : 1,
-                pointerEvents: contact.placeholder ? 'none' : 'auto',
               }}
               onMouseEnter={(e) => {
-                if (!contact.placeholder) {
-                  (e.currentTarget as HTMLAnchorElement).style.background =
-                    'rgba(255,255,255,0.16)';
-                }
+                (e.currentTarget as HTMLAnchorElement).style.background =
+                  'rgba(255,255,255,0.16)';
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.background =
