@@ -8,7 +8,7 @@ export const dinos = [
         "isEgg": false,
         "diet": "h",
         "price": {
-          "egg-pair": 0,
+          "egg-pair": 4,
           "egg-m-or-f": 0,
           "baby-pair": 0,
           "baby-m-or-f": 0,
@@ -913,13 +913,13 @@ export const dinos = [
     }
   },
   {
-    "dino": "mantis [t-e]",
-    "capa": "/assets/mantis [t-e]/Mantis.png",
+    "dino": "mantis [t-c]",
+    "capa": "/assets/mantis [t-c]/Mantis.png",
     "builds": {
       "damage": {
         "description": "",
         "isEgg": true,
-        "diet": "e",
+        "diet": "c",
         "price": {
           "egg-pair": 0,
           "egg-m-or-f": 0,
@@ -931,7 +931,7 @@ export const dinos = [
         "variantes": [
           {
             "variant": "dp",
-            "fotos": "/assets/mantis [t-e]/damage/[dp].png"
+            "fotos": "/assets/mantis [t-c]/damage/[dp].png"
           }
         ]
       }

@@ -5,7 +5,7 @@
       "isEgg": false,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
+        "egg-pair": 4,
         "egg-m-or-f": 0,
         "baby-pair": 0,
         "baby-m-or-f": 0,
@@ -366,11 +366,11 @@
       }
     }
   },
-  "mantis [t-e]": {
+  "mantis [t-c]": {
     "damage": {
       "description": "",
       "isEgg": true,
-      "diet": "e",
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
