@@ -5,7 +5,7 @@ export function Footer() {
     {
       name: 'WhatsApp',
       icon: '💬',
-      url: 'https://wa.me/55',
+      url: 'https://wa.me/5562981540735',
       placeholder: true,
     },
     {

@@ -209,9 +209,8 @@ export default function Home() {
       />
 
       <div
+        className="main-grid-container"
         style={{
-          display: 'grid',
-          gridTemplateColumns: '260px minmax(0, 1fr)',
           gap: 24,
           alignItems: 'start',
           padding: '18px 16px 110px 16px',
@@ -237,11 +236,22 @@ export default function Home() {
       <Footer />
 
       <style jsx>{`
+        .main-grid-container {
+          display: grid;
+          grid-template-columns: 260px minmax(0, 1fr);
+          gap: 24px;
+          align-items: start;
+          padding: 18px 16px 110px 16px;
+          max-width: 1360px;
+          margin: 0 auto;
+          min-height: calc(100vh - 200px);
+        }
+
         @media (max-width: 960px) {
-          div {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-            padding-bottom: 90px !important;
+          .main-grid-container {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding-bottom: 90px;
           }
         }
       `}</style>

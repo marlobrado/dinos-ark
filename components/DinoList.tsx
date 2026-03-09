@@ -121,18 +121,13 @@ export function DinoList({
       <aside
         className="sidebar-aside"
         style={{
-          position: 'sticky',
-          top: '76px',
-          maxHeight: 'calc(100vh - 120px)',
-          overflowY: 'auto',
-          pointerEvents: 'auto',
           background: 'rgba(255,255,255,0.04)',
           border: '1px solid rgba(255,255,255,0.10)',
           borderRadius: 18,
           padding: 14,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12,
+          maxHeight: 'calc(100vh - 120px)',
+          overflowY: 'auto',
+          pointerEvents: 'auto',
         }}
       >
         <strong style={{ color: '#f5f5f7', fontSize: 15 }}>Dinos List</strong>
@@ -143,6 +138,7 @@ export function DinoList({
             flexDirection: 'column',
             gap: 8,
             pointerEvents: 'auto',
+            marginTop: 12,
           }}
         >
           {dinoIndex.map((dino) => {
@@ -182,21 +178,24 @@ export function DinoList({
 
       <style jsx>{`
         .summary-modal-overlay {
-          display: none;
+          display: none !important;
         }
 
         .sidebar-aside {
+          display: flex !important;
+          flex-direction: column;
+          gap: 12px;
           position: sticky;
           top: 76px;
         }
 
         @media (max-width: 960px) {
           .sidebar-aside {
-            position: static;
-            display: none;
+            display: none !important;
+            position: static !important;
             top: auto;
-            maxheight: auto;
-            overflowy: visible;
+            max-height: auto;
+            overflow-y: visible;
           }
 
           .summary-modal-overlay {
