@@ -1,26 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦖 DinoLand - Ark Survival Ascended Builds
 
-## Getting Started
+Um catálogo interativo de dinossauros do Ark Survival Ascended com builds especializadas, stats e preços.
 
-First, run the development server:
+## ✨ Features
+
+- 🔍 **Busca Inteligente** - Encontre dinossauros rapidamente
+- 🍖 **Filtros por Dieta** - Carnívoro, Herbívoro, Onívoro e Especial
+- 📱 **Design Responsivo** - Interface adaptada para desktop e mobile
+- 🎨 **Modal de Imagens** - Visualize imagens em alta qualidade
+- ⚡ **Performance Otimizada** - Carregamento rápido com Next.js 14
+- 📊 **Builds Organizadas** - Damage, HP, Weight, Balanced e mais
+- 💰 **Sistema de Preços** - Valores para eggs, babies e clones
+- 🔗 **Links Sociais** - WhatsApp, Telegram e Facebook integrados
+
+## 🚀 Tecnologias
+
+- [Next.js 14](https://nextjs.org/) - React Framework
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [React Icons](https://react-icons.github.io/react-icons/) - Ícones
+- [Tailwind CSS](https://tailwindcss.com/) - Estilização
+
+## 🎮 Getting Started
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Gerenciamento de Imagens
+## 🖼️ Gerenciamento de Imagens
 
 ### Comando: `npm run gerar`
 
@@ -98,6 +114,84 @@ Dentro das subpastas de build, o formato obrigatório continua sendo: `[variante
 - `[variante]` = identificador entre colchetes (ex: `[01]`, `[cc]`, `[cyber]`, `[164]`)
 - `-` = hífen obrigatório após o colchete
 - `tipo` = deve corresponder ao nome da pasta (ex: `balanced`, `damage`, `hp`, `weight`)
+
+## 📁 Estrutura do Projeto
+
+```
+dinos-ark/
+├── app/                    # Next.js App Router
+│   ├── page.tsx           # Página principal
+│   ├── layout.tsx         # Layout root
+│   └── globals.css        # Estilos globais
+├── components/            # Componentes React
+│   ├── Header.tsx         # Cabeçalho com busca e filtros
+│   ├── DinoList.tsx       # Lista lateral de dinossauros
+│   ├── DinoContent.tsx    # Conteúdo principal dos dinos
+│   ├── Footer.tsx         # Rodapé com links sociais
+│   └── types.ts           # TypeScript types
+├── public/
+│   ├── assets/            # Imagens dos dinossauros
+│   ├── images.js          # Dados gerados automaticamente
+│   └── images-metadata.json # Metadados editáveis
+└── scripts/
+    └── process_images.js  # Script de processamento de imagens
+```
+
+## 🎨 Customização
+
+### Atualizar Links Sociais
+
+Edite [components/Footer.tsx](components/Footer.tsx) e atualize as URLs:
+
+```tsx
+{
+  name: 'Telegram',
+  icon: <FaTelegram />,
+  url: 'https://t.me/seunometelegram', // Seu @usuário
+},
+{
+  name: 'Facebook',
+  icon: <FaFacebook />,
+  url: 'https://facebook.com/seuperfil', // Seu perfil
+}
+```
+
+### Adicionar Novos Dinossauros
+
+1. Crie uma pasta em `public/assets/[nome-do-dino]`
+2. Adicione as imagens seguindo o padrão de nomenclatura
+3. Execute `npm run gerar`
+4. Edite `public/images-metadata.json` com description e preços
+5. Execute `npm run gerar` novamente
+
+## 📱 Responsividade
+
+### Desktop (> 960px)
+
+- Filtros de dieta inline
+- Sidebar de dinossauros fixa
+- Grid de 2 colunas
+
+### Mobile (≤ 960px)
+
+- Filtros em modal (botão hamburger ☰)
+- Lista de dinos em modal (botão "Dinos List")
+- Conteúdo em coluna única
+
+## 📝 License
+
+Este projeto é de uso pessoal.
+
+## 👤 Contato
+
+- WhatsApp: [+55 62 98154-0735](https://wa.me/5562981540735)
+- Telegram: [Seu Telegram]
+- Facebook: [Seu Facebook]
+
+---
+
+Desenvolvido com ❤️ para a comunidade Ark Survival Ascended
+
 - Tudo em **minúsculas**
 
 ### Regra da Capa
