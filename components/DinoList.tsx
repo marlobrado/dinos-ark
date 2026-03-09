@@ -120,6 +120,11 @@ export function DinoList({
       {/* Sidebar desktop */}
       <aside
         style={{
+          position: 'sticky',
+          top: 76,
+          maxHeight: 'calc(100vh - 120px)',
+          overflowY: 'auto',
+          pointerEvents: 'auto',
           background: 'rgba(255,255,255,0.04)',
           border: '1px solid rgba(255,255,255,0.10)',
           borderRadius: 18,
@@ -136,6 +141,7 @@ export function DinoList({
             display: 'flex',
             flexDirection: 'column',
             gap: 8,
+            pointerEvents: 'auto',
           }}
         >
           {dinoIndex.map((dino) => {
@@ -151,6 +157,7 @@ export function DinoList({
                   borderRadius: 12,
                   textAlign: 'left',
                   cursor: 'pointer',
+                  pointerEvents: 'auto',
                   border: isActive
                     ? '1px solid rgba(255,255,255,0.28)'
                     : '1px solid rgba(255,255,255,0.10)',

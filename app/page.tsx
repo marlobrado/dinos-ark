@@ -214,7 +214,7 @@ export default function Home() {
           gridTemplateColumns: '260px minmax(0, 1fr)',
           gap: 24,
           alignItems: 'start',
-          padding: '18px 16px',
+          padding: '18px 16px 110px 16px',
           maxWidth: 1360,
           margin: '0 auto',
           minHeight: 'calc(100vh - 200px)',

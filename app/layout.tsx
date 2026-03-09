@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dinoland",
+  title: "Dino Builds",
   description: "Dinos from Ark Survival Ascended",
 };
 

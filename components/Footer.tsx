@@ -25,31 +25,32 @@ export function Footer() {
   return (
     <footer
       style={{
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 40,
         background: 'rgba(11, 11, 15, 0.92)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         borderTop: '1px solid rgba(255,255,255,0.10)',
-        marginTop: 60,
       }}
     >
       <div
         style={{
           maxWidth: 1360,
           margin: '0 auto',
-          padding: '32px 16px',
+          padding: '10px 16px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: 24,
+          gap: 16,
         }}
       >
         <div>
-          <p style={{ color: '#f5f5f7', fontSize: 14, marginBottom: 8 }}>
-            <strong>DinoLand</strong>
-          </p>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13 }}>
-            © 2026. All rights reserved.
+          <p style={{ color: '#f5f5f7', fontSize: 13, margin: 0 }}>
+            <strong>DinoLand</strong> © 2026
           </p>
         </div>
 
