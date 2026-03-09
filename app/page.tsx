@@ -3,49 +3,14 @@
 import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { dinos } from '@/public/images';
-
-type Price = {
-  'egg-pair': number;
-  'egg-m-or-f': number;
-  'baby-pair': number;
-  'baby-m-or-f': number;
-  'clone-m-or-f': number;
-  'clone-pair': number;
-};
-
-type Variant = {
-  variant: string;
-  fotos: string;
-};
-
-type BuildData = {
-  description: string;
-  isEgg: boolean;
-  diet: string;
-  price: Price;
-  variantes: Variant[];
-};
-
-type Dino = {
-  dino: string;
-  capa?: string;
-  builds: Record<string, BuildData>;
-};
-
-type ExpandedImage = {
-  src: string;
-  alt: string;
-};
-
-type DietFilter = 'all' | 'c' | 'h' | 'o' | 'e';
+import { Header } from '@/components/Header';
+import { DinoList } from '@/components/DinoList';
+import { DinoContent } from '@/components/DinoContent';
+import { Footer } from '@/components/Footer';
+import { Dino, ExpandedImage, DietFilter } from '@/components/types';
 
 const typedDinos = dinos as unknown as Dino[];
 
-/* ===============================
-   Helpers
-================================ */
-
-// Safe DOM id
 function toId(value: string) {
   return value
     .toLowerCase()
@@ -54,57 +19,12 @@ function toId(value: string) {
     .replace(/[^a-z0-9\-]/g, '');
 }
 
-// USD formatter ($7.00)
-const usd = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-
-// Price labels (Egg vs Embryo)
-function getPriceLabels(mode: 'Egg' | 'Embryo'): Record<string, string> {
-  return {
-    'egg-pair': `${mode} pair`,
-    'egg-m-or-f': `${mode} M or F`,
-    'baby-pair': 'Baby pair',
-    'baby-m-or-f': 'Baby M or F',
-    'clone-m-or-f': 'Clone M or F',
-    'clone-pair': 'Clone pair',
-  };
-}
-
-// Stable price order
-const priceOrder = [
-  'egg-pair',
-  'egg-m-or-f',
-  'baby-pair',
-  'baby-m-or-f',
-  'clone-m-or-f',
-  'clone-pair',
-] as const;
-
-const dietFilters: Array<{ id: DietFilter; label: string }> = [
-  { id: 'all', label: 'All' },
-  { id: 'c', label: 'Carnivore' },
-  { id: 'h', label: 'Herbivore' },
-  { id: 'o', label: 'Omnivore' },
-  { id: 'e', label: 'Special' },
-];
-
-// Remove diet suffix from dino name for display
-// "carcharodontossauro [t-c]" -> "carcharodontossauro"
 function getDinoDisplayName(dinoName: string): string {
   return dinoName.replace(/\s*\[[tfch\-oe]+\]\s*$/, '').trim();
 }
 
-/* ===============================
-   Component
-================================ */
-
 export default function Home() {
   const [query, setQuery] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
   const [dietFilter, setDietFilter] = useState<DietFilter>('all');
   const [activeDinoId, setActiveDinoId] = useState('');
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
@@ -112,7 +32,6 @@ export default function Home() {
     null
   );
   const headerRef = useRef<HTMLElement | null>(null);
-  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const filteredDinos = useMemo(() => {
     if (dietFilter === 'all') {
@@ -134,14 +53,6 @@ export default function Home() {
     [filteredDinos]
   );
 
-  const matches = useMemo(() => {
-    const q = query.toLowerCase().trim();
-    if (!q) return [];
-    return dinoIndex
-      .filter((d) => d.name.toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [query, dinoIndex]);
-
   useEffect(() => {
     if (!expandedImage && !isSummaryOpen) {
       document.body.style.overflow = '';
@@ -153,7 +64,6 @@ export default function Home() {
         if (expandedImage) {
           setExpandedImage(null);
         }
-
         if (isSummaryOpen) {
           setIsSummaryOpen(false);
         }
@@ -200,7 +110,7 @@ export default function Home() {
         }
       },
       {
-        rootMargin: '-120px 0px -55% 0px',
+        rootMargin: '-80px 0px -55% 0px',
         threshold: [0.15, 0.3, 0.6],
       }
     );
@@ -218,7 +128,7 @@ export default function Home() {
     if (!el) return;
 
     const headerHeight =
-      headerRef.current?.getBoundingClientRect().height ?? 90;
+      headerRef.current?.getBoundingClientRect().height ?? 60;
     const headerOffset = headerHeight + 16;
     const rect = el.getBoundingClientRect();
     const y = rect.top + window.scrollY - headerOffset;
@@ -228,118 +138,9 @@ export default function Home() {
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (matches.length > 0) {
-      scrollToDino(matches[0].id);
-      setIsFocused(false);
-      inputRef.current?.blur();
-    }
-  }
-
   return (
     <>
-      {isSummaryOpen && (
-        <div
-          className="summary-modal-overlay"
-          onClick={() => setIsSummaryOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 95,
-            background: 'rgba(0,0,0,0.78)',
-            padding: 16,
-          }}
-        >
-          <div
-            onClick={(event) => event.stopPropagation()}
-            style={{
-              width: 'min(420px, 100%)',
-              maxHeight: 'calc(100vh - 32px)',
-              margin: '0 auto',
-              background: 'rgba(18,18,22,0.98)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: 20,
-              overflow: 'hidden',
-              boxShadow: '0 24px 80px rgba(0,0,0,0.45)',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: 12,
-                padding: '14px 16px',
-                borderBottom: '1px solid rgba(255,255,255,0.08)',
-              }}
-            >
-              <strong style={{ color: '#f5f5f7', fontSize: 16 }}>
-                Dinos List
-              </strong>
-
-              <button
-                type="button"
-                aria-label="Fechar sumario"
-                onClick={() => setIsSummaryOpen(false)}
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 999,
-                  border: '1px solid rgba(255,255,255,0.16)',
-                  background: 'rgba(255,255,255,0.06)',
-                  color: '#fff',
-                  fontSize: 26,
-                  lineHeight: 1,
-                  cursor: 'pointer',
-                }}
-              >
-                ×
-              </button>
-            </div>
-
-            <div
-              style={{
-                padding: 16,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 8,
-                maxHeight: 'calc(100vh - 110px)',
-                overflowY: 'auto',
-              }}
-            >
-              {dinoIndex.map((dino) => {
-                const isActive = activeDinoId === dino.id;
-
-                return (
-                  <button
-                    key={dino.id}
-                    type="button"
-                    onClick={() => scrollToDino(dino.id)}
-                    style={{
-                      width: '100%',
-                      padding: '12px 14px',
-                      borderRadius: 14,
-                      textAlign: 'left',
-                      cursor: 'pointer',
-                      border: isActive
-                        ? '1px solid rgba(255,255,255,0.28)'
-                        : '1px solid rgba(255,255,255,0.10)',
-                      background: isActive
-                        ? 'rgba(255,255,255,0.12)'
-                        : 'rgba(255,255,255,0.04)',
-                      color: isActive ? '#ffffff' : 'rgba(255,255,255,0.82)',
-                    }}
-                  >
-                    {dino.displayName}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-
+      {/* Expanded Image Modal */}
       {expandedImage && (
         <div
           onClick={() => setExpandedImage(null)}
@@ -356,7 +157,7 @@ export default function Home() {
         >
           <button
             type="button"
-            aria-label="Fechar imagem"
+            aria-label="Close image"
             onClick={() => setExpandedImage(null)}
             style={{
               position: 'absolute',
@@ -369,7 +170,6 @@ export default function Home() {
               background: 'rgba(255,255,255,0.08)',
               color: '#fff',
               fontSize: 28,
-              lineHeight: 1,
               cursor: 'pointer',
             }}
           >
@@ -388,7 +188,6 @@ export default function Home() {
               src={expandedImage.src}
               alt={expandedImage.alt}
               fill
-              priority
               style={{
                 objectFit: 'contain',
                 objectPosition: 'center',
@@ -398,475 +197,54 @@ export default function Home() {
         </div>
       )}
 
-      {/* ================= HEADER ================= */}
-      <header
+      <Header
         ref={headerRef}
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 50,
-          background: 'rgba(11, 11, 15, 0.92)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-          borderBottom: '1px solid rgba(255,255,255,0.10)',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1360,
-            margin: '0 auto',
-            padding: '12px 16px',
-            display: 'flex',
-            gap: 12,
-            alignItems: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
-          <strong style={{ color: '#f5f5f7', fontSize: 18 }}>
-            Dino Builds
-          </strong>
+        query={query}
+        setQuery={setQuery}
+        dietFilter={dietFilter}
+        setDietFilter={setDietFilter}
+        dinoIndex={dinoIndex}
+        onSelectDino={scrollToDino}
+        setIsSummaryOpen={setIsSummaryOpen}
+      />
 
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              flex: '1 1 280px',
-              minWidth: 240,
-              position: 'relative',
-            }}
-          >
-            <input
-              ref={inputRef}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setTimeout(() => setIsFocused(false), 150)}
-              placeholder="Search dino... (Enter to jump)"
-              style={{
-                width: '100%',
-                padding: '10px 12px',
-                borderRadius: 12,
-                border: '1px solid rgba(255,255,255,0.16)',
-                background: 'rgba(255,255,255,0.06)',
-                color: '#f5f5f7',
-                outline: 'none',
-              }}
-            />
-
-            {isFocused && matches.length > 0 && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 'calc(100% + 8px)',
-                  left: 0,
-                  right: 0,
-                  background: 'rgba(18,18,22,0.98)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  borderRadius: 14,
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.55)',
-                }}
-              >
-                {matches.map((m) => (
-                  <button
-                    key={m.id}
-                    type="button"
-                    onMouseDown={(e) => e.preventDefault()}
-                    onClick={() => {
-                      scrollToDino(m.id);
-                      setIsFocused(false);
-                      inputRef.current?.blur();
-                    }}
-                    style={{
-                      width: '100%',
-                      textAlign: 'left',
-                      padding: '10px 12px',
-                      border: 'none',
-                      background: 'transparent',
-                      cursor: 'pointer',
-                      color: '#f5f5f7',
-                    }}
-                  >
-                    {m.name}
-                  </button>
-                ))}
-              </div>
-            )}
-          </form>
-
-          <div className="diet-filters" aria-label="Diet filters">
-            {dietFilters.map((filter) => {
-              const isActive = dietFilter === filter.id;
-
-              return (
-                <button
-                  key={filter.id}
-                  type="button"
-                  onClick={() => setDietFilter(filter.id)}
-                  className="diet-filter-button"
-                  style={{
-                    border: isActive
-                      ? '1px solid rgba(255,255,255,0.30)'
-                      : '1px solid rgba(255,255,255,0.12)',
-                    background: isActive
-                      ? 'rgba(255,255,255,0.14)'
-                      : 'rgba(255,255,255,0.06)',
-                    color: isActive ? '#ffffff' : 'rgba(255,255,255,0.82)',
-                  }}
-                >
-                  {filter.label}
-                </button>
-              );
-            })}
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setIsSummaryOpen(true)}
-            className="summary-mobile-trigger"
-          >
-            Dinos List
-          </button>
-        </div>
-      </header>
-
-      {/* ================= CONTENT ================= */}
       <div
-        className="page-shell"
         style={{
+          display: 'grid',
+          gridTemplateColumns: '260px minmax(0, 1fr)',
+          gap: 24,
+          alignItems: 'start',
           padding: '18px 16px',
           maxWidth: 1360,
           margin: '0 auto',
-          minHeight: '100vh',
+          minHeight: 'calc(100vh - 200px)',
         }}
       >
-        <aside
-          className="dino-summary"
-          style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            borderRadius: 18,
-            padding: 14,
-          }}
-        >
-          <strong
-            style={{
-              display: 'block',
-              color: '#f5f5f7',
-              fontSize: 15,
-              marginBottom: 12,
-            }}
-          >
-            Dinos List
-          </strong>
+        <DinoList
+          dinoIndex={dinoIndex}
+          activeDinoId={activeDinoId}
+          onSelectDino={scrollToDino}
+          isSummaryOpen={isSummaryOpen}
+          setIsSummaryOpen={setIsSummaryOpen}
+        />
 
-          <nav className="dino-summary-nav">
-            {dinoIndex.map((dino) => {
-              const isActive = activeDinoId === dino.id;
-
-              return (
-                <button
-                  key={dino.id}
-                  type="button"
-                  onClick={() => scrollToDino(dino.id)}
-                  className="summary-button"
-                  style={{
-                    border: isActive
-                      ? '1px solid rgba(255,255,255,0.28)'
-                      : '1px solid rgba(255,255,255,0.10)',
-                    background: isActive
-                      ? 'rgba(255,255,255,0.12)'
-                      : 'rgba(255,255,255,0.04)',
-                    color: isActive ? '#ffffff' : 'rgba(255,255,255,0.78)',
-                    boxShadow: isActive
-                      ? 'inset 0 0 0 1px rgba(255,255,255,0.06)'
-                      : 'none',
-                  }}
-                >
-                  {dino.displayName}
-                </button>
-              );
-            })}
-          </nav>
-        </aside>
-
-        <main
-          style={{
-            background: '#0e0e10',
-            color: '#f5f5f7',
-            minWidth: 0,
-          }}
-        >
-          {filteredDinos.length === 0 && (
-            <p style={{ color: 'rgba(255,255,255,0.7)' }}>
-              No dinos found for this category.
-            </p>
-          )}
-
-          {filteredDinos.map((dino) => {
-            const dinoId = toId(dino.dino);
-
-            return (
-              <section
-                key={dino.dino}
-                id={dinoId}
-                style={{
-                  marginBottom: 36,
-                  paddingBottom: 20,
-                  borderBottom: '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
-                <h2
-                  style={{
-                    textTransform: 'capitalize',
-                    fontSize: 26,
-                    marginBottom: 10,
-                  }}
-                >
-                  {getDinoDisplayName(dino.dino)}
-                </h2>
-
-                <div
-                  style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.10)',
-                    borderRadius: 18,
-                    padding: 12,
-                  }}
-                >
-                  {dino.capa && (
-                    <div
-                      onClick={() =>
-                        setExpandedImage({
-                          src: dino.capa!,
-                          alt: `${dino.dino} capa`,
-                        })
-                      }
-                      style={{
-                        position: 'relative',
-                        width: '100%',
-                        height: 320,
-                        borderRadius: 14,
-                        overflow: 'hidden',
-                        background: 'rgba(0,0,0,0.35)',
-                        marginBottom: 18,
-                        cursor: 'zoom-in',
-                      }}
-                    >
-                      <Image
-                        src={dino.capa}
-                        alt={`${dino.dino} capa`}
-                        fill
-                        style={{
-                          objectFit: 'contain',
-                          objectPosition: 'center',
-                        }}
-                      />
-                    </div>
-                  )}
-
-                  {Object.entries(dino.builds).map(([buildKey, buildData]) => {
-                    const labels = getPriceLabels(
-                      buildData.isEgg ? 'Egg' : 'Embryo'
-                    );
-
-                    const pricedItems = priceOrder
-                      .map((key) => [key, buildData.price[key]] as const)
-                      .filter(([, value]) => value > 0);
-
-                    return (
-                      <div
-                        key={buildKey}
-                        style={{
-                          marginTop: 18,
-                          paddingLeft: 14,
-                          borderLeft: '3px solid rgba(255,255,255,0.12)',
-                        }}
-                      >
-                        <h3 style={{ textTransform: 'capitalize' }}>
-                          <strong>{buildKey}</strong>
-                        </h3>
-
-                        {/* Description */}
-                        {buildData.description && (
-                          <p
-                            style={{
-                              marginTop: 8,
-                              color: '#c7c7cf',
-                              fontSize: 14,
-                            }}
-                          >
-                            <b className="font-bold">Description:</b>{' '}
-                            {buildData.description}
-                          </p>
-                        )}
-
-                        {/* Prices */}
-                        {pricedItems.length > 0 && (
-                          <div style={{ marginTop: 8 }}>
-                            <strong>Prices:</strong>
-                            <ul style={{ marginTop: 6, color: '#c7c7cf' }}>
-                              {pricedItems.map(([priceKey, priceValue]) => (
-                                <li key={priceKey}>
-                                  {labels[priceKey]}:{' '}
-                                  <strong>{usd.format(priceValue)}</strong>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {/* Variants */}
-                        <div
-                          style={{
-                            display: 'grid',
-                            gridTemplateColumns:
-                              'repeat(auto-fit, minmax(260px, 1fr))',
-                            gap: 14,
-                            marginTop: 14,
-                          }}
-                        >
-                          {buildData.variantes.map((variant) => (
-                            <figure
-                              key={`${buildKey}-${variant.variant}`}
-                              style={{
-                                background: 'rgba(255,255,255,0.04)',
-                                border: '1px solid rgba(255,255,255,0.10)',
-                                borderRadius: 16,
-                                padding: 10,
-                              }}
-                            >
-                              <div
-                                onClick={() =>
-                                  setExpandedImage({
-                                    src: variant.fotos,
-                                    alt: `${dino.dino} ${buildKey} ${variant.variant}`,
-                                  })
-                                }
-                                style={{
-                                  position: 'relative',
-                                  width: '100%',
-                                  height: 230,
-                                  borderRadius: 12,
-                                  overflow: 'hidden',
-                                  background: 'rgba(0,0,0,0.35)',
-                                  cursor: 'zoom-in',
-                                }}
-                              >
-                                <Image
-                                  src={variant.fotos}
-                                  alt={`${dino.dino} ${buildKey} ${variant.variant}`}
-                                  fill
-                                  style={{
-                                    objectFit: 'contain',
-                                    objectPosition: 'center',
-                                  }}
-                                />
-                              </div>
-
-                              <figcaption
-                                style={{
-                                  textAlign: 'center',
-                                  marginTop: 8,
-                                  fontSize: 13,
-                                  color: 'rgba(255,255,255,0.70)',
-                                }}
-                              >
-                                Variant: {variant.variant}
-                              </figcaption>
-                            </figure>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
-            );
-          })}
-        </main>
+        <DinoContent
+          dinos={filteredDinos}
+          setExpandedImage={setExpandedImage}
+        />
       </div>
 
+      <Footer />
+
       <style jsx>{`
-        .page-shell {
-          display: grid;
-          grid-template-columns: 260px minmax(0, 1fr);
-          gap: 24px;
-          align-items: start;
-        }
-
-        .dino-summary {
-          position: sticky;
-          top: 86px;
-          max-height: calc(100vh - 106px);
-          overflow-y: auto;
-        }
-
-        .summary-mobile-trigger {
-          display: none;
-          padding: 12px 14px;
-          border-radius: 14px;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          background: rgba(255, 255, 255, 0.06);
-          color: #f5f5f7;
-          text-align: left;
-          cursor: pointer;
-        }
-
-        .diet-filters {
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-          flex: 1 1 100%;
-        }
-
-        .diet-filter-button {
-          padding: 9px 12px;
-          border-radius: 12px;
-          cursor: pointer;
-          white-space: nowrap;
-          transition:
-            background 0.2s ease,
-            border-color 0.2s ease,
-            color 0.2s ease;
-        }
-
-        .dino-summary-nav {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .summary-button {
-          width: 100%;
-          padding: 10px 12px;
-          border-radius: 12px;
-          text-align: left;
-          cursor: pointer;
-          transition:
-            background 0.2s ease,
-            border-color 0.2s ease,
-            color 0.2s ease;
-        }
-
         @media (max-width: 960px) {
-          .page-shell {
+          div:has(aside) {
             grid-template-columns: 1fr;
             gap: 16px;
           }
 
-          .dino-summary {
+          aside {
             display: none;
-          }
-
-          .summary-mobile-trigger {
-            display: block;
-            flex: 1 1 100%;
-          }
-
-          .diet-filters {
-            overflow-x: auto;
-            flex-wrap: nowrap;
-            padding-bottom: 4px;
           }
         }
       `}</style>
