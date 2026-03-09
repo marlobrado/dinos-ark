@@ -623,6 +623,29 @@ export const dinos = [
     }
   },
   {
+    "dino": "fasolasuchus",
+    "builds": {
+      "balanced": {
+        "description": "",
+        "isEgg": true,
+        "price": {
+          "egg-pair": 0,
+          "egg-m-or-f": 0,
+          "baby-pair": 0,
+          "baby-m-or-f": 0,
+          "clone-m-or-f": 0,
+          "clone-pair": 0
+        },
+        "variantes": [
+          {
+            "variant": "dp",
+            "fotos": "/assets/fasolasuchus/balanced/[dp]-balanced-true.png"
+          }
+        ]
+      }
+    }
+  },
+  {
     "dino": "gasbag",
     "capa": "/assets/gasbag/image.png",
     "builds": {
@@ -990,11 +1013,11 @@ export const dinos = [
         },
         "variantes": [
           {
-            "variant": "Lucid Galaxy",
+            "variant": "lucid galaxy",
             "fotos": "/assets/ossidon/balanced/[lucid galaxy]-balanced-true.png"
           },
           {
-            "variant": "Purple Goth",
+            "variant": "purple goth",
             "fotos": "/assets/ossidon/balanced/[purple goth]-balance-true.png"
           }
         ]
