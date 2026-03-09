@@ -32,6 +32,7 @@ function normalizeBuildMeta(meta = {}) {
   return {
     description: typeof meta.description === 'string' ? meta.description : '',
     isEgg: Boolean(meta.isEgg),
+    diet: typeof meta.diet === 'string' ? meta.diet : 'c',
     price: {
       ...getDefaultPrice(),
       ...(meta.price || {}),
@@ -60,6 +61,17 @@ if (fs.existsSync(METADATA_FILE)) {
   }
 }
 
+function parseDinoFolderSuffix(folderName) {
+  // Extrai [t-c] do nome da pasta como "dino name [t-c]"
+  const match = folderName.match(/\[([tf])-([choe])\]$/);
+  if (match) {
+    const isEgg = match[1].toLowerCase() === 't';
+    const diet = match[2].toLowerCase();
+    return { isEgg, diet };
+  }
+  return null;
+}
+
 function parseFileName(fileName) {
   const ext = path.extname(fileName);
   const base = path.basename(fileName, ext);
@@ -70,31 +82,11 @@ function parseFileName(fileName) {
   const variantMatch = after.match(/\[([^\]]+)\]/);
   const variant = variantMatch ? variantMatch[1] : null;
 
-  const suffixMatch = after.match(/\]-(.+)$/);
-  const suffix = suffixMatch ? suffixMatch[1].toLowerCase() : null;
-
-  // Detecta isEgg do nome do arquivo.
-  // Novo formato: [xx]-t-c / [xx]-f-h
-  // Formato antigo: [xx]-tipo-true / [xx]-tipo-false
-  let isEggFromFile = null;
-  if (suffix) {
-    const suffixParts = suffix.split('-');
-    const eggToken = suffixParts[0];
-
-    if (eggToken === 't') {
-      isEggFromFile = true;
-    } else if (eggToken === 'f') {
-      isEggFromFile = false;
-    } else if (suffix.endsWith('-true')) {
-      isEggFromFile = true;
-    } else if (suffix.endsWith('-false')) {
-      isEggFromFile = false;
-    }
-  }
-
+  // Novo formato simples: [XX].png ou [XX].jpg
+  // Não temos mais isEgg/diet no nome do arquivo
   const newFileName = `${after.toLowerCase()}${ext}`;
 
-  return { before, after, variant, suffix, newFileName, isEggFromFile };
+  return { before, after, variant, newFileName };
 }
 
 function isCoverImageFile(fileName) {
@@ -106,7 +98,8 @@ function processFolder(
   relativePath = '',
   topLevelDino = '',
   buildType = '',
-  metadataAccumulator = {}
+  metadataAccumulator = {},
+  dinoFolderName = ''
 ) {
   const items = fs.readdirSync(folderPath);
   const isDinoRootFolder = relativePath === topLevelDino && buildType === '';
@@ -158,8 +151,7 @@ function processFolder(
   pngFiles
     .filter(() => !isDinoRootFolder)
     .forEach((di) => {
-      const { before, variant, suffix, newFileName, isEggFromFile } =
-        parseFileName(di.item);
+      const { before, variant, newFileName } = parseFileName(di.item);
       const newPath = path.join(folderPath, newFileName);
 
       if (di.item !== newFileName) {
@@ -169,9 +161,7 @@ function processFolder(
       fileInfos.push({
         before,
         variant,
-        suffix,
         finalName: newFileName,
-        isEggFromFile,
       });
     });
 
@@ -195,10 +185,10 @@ function processFolder(
       };
     }
 
-    // Detecta isEgg das imagens (usa o primeiro valor encontrado)
-    const detectedIsEgg = fileInfos.find(
-      (f) => f.isEggFromFile !== null
-    )?.isEggFromFile;
+    // Extrai isEgg e diet do nome da pasta do dino
+    const dinoSuffix = parseDinoFolderSuffix(dinoFolderName);
+    const isEggFromFolder = dinoSuffix?.isEgg ?? true;
+    const dietFromFolder = dinoSuffix?.diet || 'c';
 
     // Adiciona o build com as imagens
     const existingDino = existingDinos.find((d) => d.dino === topLevelDino);
@@ -212,17 +202,16 @@ function processFolder(
     const currentBuildMeta = normalizeBuildMeta({
       ...fallbackBuild,
       ...metadataBuild,
-      // Se detectou isEgg das imagens, usa esse valor com prioridade
+      // Usa valores da pasta do dino
       isEgg:
-        detectedIsEgg !== null && detectedIsEgg !== undefined
-          ? detectedIsEgg
-          : metadataBuild?.isEgg !== undefined
-            ? metadataBuild.isEgg
-            : fallbackBuild.isEgg,
+        metadataBuild?.isEgg !== undefined
+          ? metadataBuild.isEgg
+          : isEggFromFolder,
       price: {
         ...fallbackBuild.price,
         ...(metadataBuild?.price || {}),
       },
+      diet: dietFromFolder,
     });
 
     if (!metadataAccumulator[topLevelDino]) {
@@ -233,12 +222,13 @@ function processFolder(
     allDinos[topLevelDino].builds[buildType] = {
       description: currentBuildMeta.description,
       isEgg: currentBuildMeta.isEgg,
+      diet: currentBuildMeta.diet,
       price: currentBuildMeta.price,
       variantes: imagesArray,
     };
 
     console.log(
-      `✓ ${relativePath} (${imagesArray.length} imagens no build "${buildType}")`
+      `✓ ${relativePath} (${imagesArray.length} imagens no build "${buildType}", diet: ${dietFromFolder})`
     );
   }
 
@@ -255,7 +245,8 @@ function processFolder(
         newRelativePath,
         topLevelDino,
         newBuildType,
-        metadataAccumulator
+        metadataAccumulator,
+        dinoFolderName
       );
     });
 }
@@ -268,7 +259,7 @@ const nextMetadata = {};
 topFolders.forEach((folder) => {
   const folderPath = path.join(ASSETS_DIR, folder);
   if (fs.statSync(folderPath).isDirectory()) {
-    processFolder(folderPath, folder, folder, '', nextMetadata);
+    processFolder(folderPath, folder, folder, '', nextMetadata, folder);
   }
 });
 

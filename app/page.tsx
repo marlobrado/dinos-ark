@@ -21,6 +21,7 @@ type Variant = {
 type BuildData = {
   description: string;
   isEgg: boolean;
+  diet: string;
   price: Price;
   variantes: Variant[];
 };
@@ -91,22 +92,10 @@ const dietFilters: Array<{ id: DietFilter; label: string }> = [
   { id: 'e', label: 'Special' },
 ];
 
-function extractDietCodeFromPhoto(photoPath: string): DietFilter | null {
-  const fileName = photoPath.split('/').pop() || '';
-  const baseName = fileName.replace(/\.[^/.]+$/, '');
-  const suffixMatch = baseName.match(/\]-(.+)$/);
-
-  if (!suffixMatch) return null;
-
-  const parts = suffixMatch[1].toLowerCase().split('-');
-  const dietCode = parts[parts.length - 1];
-
-  return dietCode === 'c' ||
-    dietCode === 'h' ||
-    dietCode === 'o' ||
-    dietCode === 'e'
-    ? dietCode
-    : null;
+// Remove diet suffix from dino name for display
+// "carcharodontossauro [t-c]" -> "carcharodontossauro"
+function getDinoDisplayName(dinoName: string): string {
+  return dinoName.replace(/\s*\[[tfch\-oe]+\]\s*$/, '').trim();
 }
 
 /* ===============================
@@ -131,11 +120,7 @@ export default function Home() {
     }
 
     return typedDinos.filter((dino) =>
-      Object.values(dino.builds).some((build) =>
-        build.variantes.some(
-          (variant) => extractDietCodeFromPhoto(variant.fotos) === dietFilter
-        )
-      )
+      Object.values(dino.builds).some((build) => build.diet === dietFilter)
     );
   }, [dietFilter]);
 
@@ -143,6 +128,7 @@ export default function Home() {
     () =>
       filteredDinos.map((d) => ({
         name: d.dino,
+        displayName: getDinoDisplayName(d.dino),
         id: toId(d.dino),
       })),
     [filteredDinos]
@@ -345,7 +331,7 @@ export default function Home() {
                       color: isActive ? '#ffffff' : 'rgba(255,255,255,0.82)',
                     }}
                   >
-                    {dino.name}
+                    {dino.displayName}
                   </button>
                 );
               })}
@@ -596,7 +582,7 @@ export default function Home() {
                       : 'none',
                   }}
                 >
-                  {dino.name}
+                  {dino.displayName}
                 </button>
               );
             })}
@@ -636,7 +622,7 @@ export default function Home() {
                     marginBottom: 10,
                   }}
                 >
-                  {dino.dino}
+                  {getDinoDisplayName(dino.dino)}
                 </h2>
 
                 <div

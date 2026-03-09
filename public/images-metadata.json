@@ -1,62 +1,22 @@
 {
-  "aberrant gigantopithecus": {
+  "aberrant gigantopithecus [f-h]": {
     "damage": {
       "description": "",
       "isEgg": false,
+      "diet": "h",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 0,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    },
-    "weight": {
-      "description": "",
-      "isEgg": false,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 0,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "aberrant megalosaurus": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 0,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "aberrant oviraptor": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 2,
-        "egg-m-or-f": 2,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
         "clone-pair": 0
       }
-    }
-  },
-  "armadoggo": {
-    "balanced": {
+    },
+    "weight": {
       "description": "",
       "isEgg": false,
+      "diet": "h",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -67,10 +27,11 @@
       }
     }
   },
-  "basilisk": {
-    "damage": {
+  "aberrant megalosaurus [t-c]": {
+    "balanced": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -81,76 +42,112 @@
       }
     }
   },
-  "bronto": {
+  "aberrant oviraptor [t-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "armadoggo [f-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "basilisk [t-c]": {
     "damage": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "bronto [t-h]": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "diet": "h",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     },
     "weight": {
       "description": "",
       "isEgg": true,
+      "diet": "h",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "carcharodontossauro": {
+  "carcharodontossauro [t-c]": {
     "balanced": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     },
     "damage": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "ceratosaurus": {
+  "ceratosaurus [t-c]": {
     "kibble": {
-      "description": "Kill this dinosaur in the Bio-Grinder to get Extraordinary Kibble.",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 7,
-        "egg-m-or-f": 5,
-        "baby-pair": 0,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 0,
-        "clone-pair": 0
-      }
-    }
-  },
-  "cosmos": {
-    "balanced": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -161,50 +158,39 @@
       }
     }
   },
-  "deinosuchus": {
+  "cosmos [t-c]": {
     "balanced": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "deinosuchus [t-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     },
     "damage": {
       "description": "",
       "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "desmodus": {
-    "balanced": {
-      "description": "",
-      "isEgg": false,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "dire bear": {
-    "balanced": {
-      "description": "",
-      "isEgg": false,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -215,38 +201,56 @@
       }
     }
   },
-  "dreadnoughtus": {
+  "desmodus [f-c]": {
     "balanced": {
       "description": "",
-      "isEgg": true,
+      "isEgg": false,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "dung beetle": {
+  "dire bear [f-o]": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "diet": "o",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "dreadnoughtus [t-h]": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "diet": "h",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "dung beetle [f-e]": {
     "high level": {
       "description": "",
       "isEgg": false,
-      "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
-        "baby-pair": 0,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 7,
-        "clone-pair": 0
-      }
-    }
-  },
-  "fasolasuchus": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
+      "diet": "e",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -257,38 +261,26 @@
       }
     }
   },
-  "gasbag": {
+  "fasolasuchus [t-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "gasbag [f-h]": {
     "weight": {
       "description": "",
       "isEgg": false,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "gigantoraptor": {
-    "damage": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "griffin": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
+      "diet": "h",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -299,24 +291,56 @@
       }
     }
   },
-  "karkinos": {
-    "balanced": {
+  "gigantoraptor [t-o]": {
+    "damage": {
       "description": "",
-      "isEgg": false,
+      "isEgg": true,
+      "diet": "o",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "maeguana": {
+  "griffin [t-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "karkinos [f-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "maeguana [t-o]": {
     "food": {
       "description": "",
       "isEgg": true,
+      "diet": "o",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -327,24 +351,26 @@
       }
     }
   },
-  "managarmr": {
+  "managarmr [f-c]": {
     "balanced": {
       "description": "",
       "isEgg": false,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "mantis": {
+  "mantis [t-e]": {
     "damage": {
       "description": "",
       "isEgg": true,
+      "diet": "e",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -355,50 +381,39 @@
       }
     }
   },
-  "megatherium": {
+  "megatherium [f-o]": {
     "balanced": {
       "description": "",
       "isEgg": false,
+      "diet": "o",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "mosasaurus": {
+  "mosasaurus [f-c]": {
     "balanced": {
       "description": "",
       "isEgg": false,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     },
     "damage": {
       "description": "",
       "isEgg": false,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "ossidon": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -409,24 +424,41 @@
       }
     }
   },
-  "ovis": {
-    "hp": {
+  "ossidon [t-c]": {
+    "balanced": {
       "description": "",
-      "isEgg": false,
+      "isEgg": true,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   },
-  "pyromane": {
+  "ovis [f-h]": {
+    "hp": {
+      "description": "",
+      "isEgg": false,
+      "diet": "h",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "pyromane [f-c]": {
     "damage": {
       "description": "",
       "isEgg": false,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -439,6 +471,7 @@
     "weight": {
       "description": "",
       "isEgg": false,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -449,10 +482,11 @@
       }
     }
   },
-  "rock drake": {
+  "rock drake [t-e]": {
     "balanced": {
       "description": "",
       "isEgg": true,
+      "diet": "e",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -463,52 +497,11 @@
       }
     }
   },
-  "snow owl": {
+  "snow owl [t-c]": {
     "stamina": {
       "description": "",
       "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "tek giga": {
-    "damage": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "tek rex": {
-    "damage": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "therizinosaurs": {
-    "damage": {
-      "description": "",
-      "isEgg": true,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -519,50 +512,69 @@
       }
     }
   },
-  "thylacoleo": {
+  "tek giga [t-c]": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "tek rex [t-c]": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "therizinosaurs [t-h]": {
+    "damage": {
+      "description": "",
+      "isEgg": true,
+      "diet": "h",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "thylacoleo [f-c]": {
     "damage": {
       "description": "",
       "isEgg": false,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     },
     "hp": {
       "description": "",
       "isEgg": false,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "tusoteuthis": {
-    "balanced": {
-      "description": "",
-      "isEgg": true,
-      "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
-        "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
-      }
-    }
-  },
-  "veilwyn": {
-    "balanced": {
-      "description": "",
-      "isEgg": false,
+      "diet": "c",
       "price": {
         "egg-pair": 0,
         "egg-m-or-f": 0,
@@ -573,17 +585,48 @@
       }
     }
   },
-  "vulture": {
+  "tusoteuthis [t-c]": {
     "balanced": {
       "description": "",
       "isEgg": true,
+      "diet": "c",
       "price": {
-        "egg-pair": 8,
-        "egg-m-or-f": 5,
-        "baby-pair": 7,
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 10,
-        "clone-pair": 15
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "veilwyn [f-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": false,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
+      }
+    }
+  },
+  "vulture [t-c]": {
+    "balanced": {
+      "description": "",
+      "isEgg": true,
+      "diet": "c",
+      "price": {
+        "egg-pair": 0,
+        "egg-m-or-f": 0,
+        "baby-pair": 0,
+        "baby-m-or-f": 0,
+        "clone-m-or-f": 0,
+        "clone-pair": 0
       }
     }
   }
