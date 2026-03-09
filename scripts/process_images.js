@@ -73,10 +73,19 @@ function parseFileName(fileName) {
   const suffixMatch = after.match(/\]-(.+)$/);
   const suffix = suffixMatch ? suffixMatch[1].toLowerCase() : null;
 
-  // Detecta isEgg do nome do arquivo (-true ou -false)
+  // Detecta isEgg do nome do arquivo.
+  // Novo formato: [xx]-t-c / [xx]-f-h
+  // Formato antigo: [xx]-tipo-true / [xx]-tipo-false
   let isEggFromFile = null;
   if (suffix) {
-    if (suffix.endsWith('-true')) {
+    const suffixParts = suffix.split('-');
+    const eggToken = suffixParts[0];
+
+    if (eggToken === 't') {
+      isEggFromFile = true;
+    } else if (eggToken === 'f') {
+      isEggFromFile = false;
+    } else if (suffix.endsWith('-true')) {
       isEggFromFile = true;
     } else if (suffix.endsWith('-false')) {
       isEggFromFile = false;

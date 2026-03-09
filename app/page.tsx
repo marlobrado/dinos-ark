@@ -36,6 +36,8 @@ type ExpandedImage = {
   alt: string;
 };
 
+type DietFilter = 'all' | 'c' | 'h' | 'o' | 'e';
+
 const typedDinos = dinos as unknown as Dino[];
 
 /* ===============================
@@ -81,6 +83,32 @@ const priceOrder = [
   'clone-pair',
 ] as const;
 
+const dietFilters: Array<{ id: DietFilter; label: string }> = [
+  { id: 'all', label: 'All' },
+  { id: 'c', label: 'Carnivore' },
+  { id: 'h', label: 'Herbivore' },
+  { id: 'o', label: 'Omnivore' },
+  { id: 'e', label: 'Special' },
+];
+
+function extractDietCodeFromPhoto(photoPath: string): DietFilter | null {
+  const fileName = photoPath.split('/').pop() || '';
+  const baseName = fileName.replace(/\.[^/.]+$/, '');
+  const suffixMatch = baseName.match(/\]-(.+)$/);
+
+  if (!suffixMatch) return null;
+
+  const parts = suffixMatch[1].toLowerCase().split('-');
+  const dietCode = parts[parts.length - 1];
+
+  return dietCode === 'c' ||
+    dietCode === 'h' ||
+    dietCode === 'o' ||
+    dietCode === 'e'
+    ? dietCode
+    : null;
+}
+
 /* ===============================
    Component
 ================================ */
@@ -88,6 +116,7 @@ const priceOrder = [
 export default function Home() {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [dietFilter, setDietFilter] = useState<DietFilter>('all');
   const [activeDinoId, setActiveDinoId] = useState('');
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [expandedImage, setExpandedImage] = useState<ExpandedImage | null>(
@@ -96,13 +125,27 @@ export default function Home() {
   const headerRef = useRef<HTMLElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const filteredDinos = useMemo(() => {
+    if (dietFilter === 'all') {
+      return typedDinos;
+    }
+
+    return typedDinos.filter((dino) =>
+      Object.values(dino.builds).some((build) =>
+        build.variantes.some(
+          (variant) => extractDietCodeFromPhoto(variant.fotos) === dietFilter
+        )
+      )
+    );
+  }, [dietFilter]);
+
   const dinoIndex = useMemo(
     () =>
-      typedDinos.map((d) => ({
+      filteredDinos.map((d) => ({
         name: d.dino,
         id: toId(d.dino),
       })),
-    []
+    [filteredDinos]
   );
 
   const matches = useMemo(() => {
@@ -142,10 +185,15 @@ export default function Home() {
 
   useEffect(() => {
     if (dinoIndex.length === 0) {
+      setActiveDinoId('');
       return;
     }
 
-    setActiveDinoId((currentId) => currentId || dinoIndex[0].id);
+    setActiveDinoId((currentId) => {
+      if (!currentId) return dinoIndex[0].id;
+      const stillExists = dinoIndex.some((dino) => dino.id === currentId);
+      return stillExists ? currentId : dinoIndex[0].id;
+    });
 
     const sections = dinoIndex
       .map((dino) => document.getElementById(dino.id))
@@ -459,6 +507,32 @@ export default function Home() {
             )}
           </form>
 
+          <div className="diet-filters" aria-label="Diet filters">
+            {dietFilters.map((filter) => {
+              const isActive = dietFilter === filter.id;
+
+              return (
+                <button
+                  key={filter.id}
+                  type="button"
+                  onClick={() => setDietFilter(filter.id)}
+                  className="diet-filter-button"
+                  style={{
+                    border: isActive
+                      ? '1px solid rgba(255,255,255,0.30)'
+                      : '1px solid rgba(255,255,255,0.12)',
+                    background: isActive
+                      ? 'rgba(255,255,255,0.14)'
+                      : 'rgba(255,255,255,0.06)',
+                    color: isActive ? '#ffffff' : 'rgba(255,255,255,0.82)',
+                  }}
+                >
+                  {filter.label}
+                </button>
+              );
+            })}
+          </div>
+
           <button
             type="button"
             onClick={() => setIsSummaryOpen(true)}
@@ -536,7 +610,13 @@ export default function Home() {
             minWidth: 0,
           }}
         >
-          {typedDinos.map((dino) => {
+          {filteredDinos.length === 0 && (
+            <p style={{ color: 'rgba(255,255,255,0.7)' }}>
+              No dinos found for this category.
+            </p>
+          )}
+
+          {filteredDinos.map((dino) => {
             const dinoId = toId(dino.dino);
 
             return (
@@ -746,6 +826,24 @@ export default function Home() {
           cursor: pointer;
         }
 
+        .diet-filters {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          flex: 1 1 100%;
+        }
+
+        .diet-filter-button {
+          padding: 9px 12px;
+          border-radius: 12px;
+          cursor: pointer;
+          white-space: nowrap;
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            color 0.2s ease;
+        }
+
         .dino-summary-nav {
           display: flex;
           flex-direction: column;
@@ -777,6 +875,12 @@ export default function Home() {
           .summary-mobile-trigger {
             display: block;
             flex: 1 1 100%;
+          }
+
+          .diet-filters {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 4px;
           }
         }
       `}</style>
