@@ -238,13 +238,10 @@ export default function Home() {
 
       <style jsx>{`
         @media (max-width: 960px) {
-          div:has(aside) {
-            grid-template-columns: 1fr;
-            gap: 16px;
-          }
-
-          aside {
-            display: none;
+          div {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            padding-bottom: 90px !important;
           }
         }
       `}</style>

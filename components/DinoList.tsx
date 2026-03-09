@@ -119,9 +119,10 @@ export function DinoList({
 
       {/* Sidebar desktop */}
       <aside
+        className="sidebar-aside"
         style={{
           position: 'sticky',
-          top: 76,
+          top: '76px',
           maxHeight: 'calc(100vh - 120px)',
           overflowY: 'auto',
           pointerEvents: 'auto',
@@ -184,10 +185,20 @@ export function DinoList({
           display: none;
         }
 
+        .sidebar-aside {
+          position: sticky;
+          top: 76px;
+        }
+
         @media (max-width: 960px) {
-          aside {
+          .sidebar-aside {
+            position: static;
             display: none;
+            top: auto;
+            maxheight: auto;
+            overflowy: visible;
           }
+
           .summary-modal-overlay {
             display: flex !important;
             align-items: center;

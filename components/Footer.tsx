@@ -46,6 +46,7 @@ export function Footer() {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: 16,
+          minHeight: '60px',
         }}
       >
         <div>
@@ -59,6 +60,8 @@ export function Footer() {
             display: 'flex',
             gap: 12,
             alignItems: 'center',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
           }}
         >
           {contacts.map((contact) => (
