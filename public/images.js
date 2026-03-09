@@ -725,6 +725,7 @@ export const dinos = [
   },
   {
     "dino": "gigantoraptor",
+    "capa": "/assets/gigantoraptor/gigantoraptor.png",
     "builds": {
       "damage": {
         "description": "",
@@ -760,7 +761,7 @@ export const dinos = [
   },
   {
     "dino": "griffin",
-    "capa": "/assets/griffin/griffin.jpg",
+    "capa": "/assets/griffin/Griffin (flying).png",
     "builds": {
       "balanced": {
         "description": "",
@@ -784,6 +785,7 @@ export const dinos = [
   },
   {
     "dino": "karkinos",
+    "capa": "/assets/karkinos/Karkinos.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -807,7 +809,7 @@ export const dinos = [
   },
   {
     "dino": "maeguana",
-    "capa": "/assets/maeguana/maeguana.jpg",
+    "capa": "/assets/maeguana/Maeguana.png",
     "builds": {
       "food": {
         "description": "",
@@ -843,7 +845,7 @@ export const dinos = [
   },
   {
     "dino": "managarmr",
-    "capa": "/assets/managarmr/image.png",
+    "capa": "/assets/managarmr/Managarmr.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -887,7 +889,7 @@ export const dinos = [
   },
   {
     "dino": "mantis",
-    "capa": "/assets/mantis/Sem título.jpg",
+    "capa": "/assets/mantis/Mantis.png",
     "builds": {
       "damage": {
         "description": "",
@@ -911,6 +913,7 @@ export const dinos = [
   },
   {
     "dino": "megatherium",
+    "capa": "/assets/megatherium/Megatherium.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -1000,6 +1003,7 @@ export const dinos = [
   },
   {
     "dino": "ossidon",
+    "capa": "/assets/ossidon/Ossidon.png",
     "builds": {
       "balanced": {
         "description": "",
@@ -1027,6 +1031,7 @@ export const dinos = [
   },
   {
     "dino": "ovis",
+    "capa": "/assets/ovis/Ovis.png",
     "builds": {
       "hp": {
         "description": "",
@@ -1050,7 +1055,6 @@ export const dinos = [
   },
   {
     "dino": "pyromane",
-    "capa": "/assets/pyromane/pyromane.jpg",
     "builds": {
       "damage": {
         "description": "",
