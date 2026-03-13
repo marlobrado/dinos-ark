@@ -156,6 +156,35 @@ Edite [components/Footer.tsx](components/Footer.tsx) e atualize as URLs:
 }
 ```
 
+### Tipografia
+
+O projeto usa três fontes do Google Fonts:
+
+- **Big Shoulders Stencil Text** - Para nomes dos dinossauros
+  - Variável CSS: `--font-big-shoulders-stencil`
+  - Aplicada nos títulos h2 dos nomes dos dinossauros
+
+- **Big Shoulders Text** - Para outros títulos (DinoLand, builds, labels)
+  - Variável CSS: `--font-big-shoulders`
+  - Aplicada em títulos h3, strong e labels principais
+
+- **Lora** - Para corpo de texto (descrições, preços, conteúdo geral)
+  - Variável CSS: `--font-lora`
+  - Aplicada como fonte padrão do body
+
+Para usar em componentes customizados:
+
+```tsx
+// Para nomes de dinossauros
+<h2 style={{ fontFamily: 'var(--font-big-shoulders-stencil)' }}>Aberrant Gigantopithecus</h2>
+
+// Para outros títulos
+<h3 style={{ fontFamily: 'var(--font-big-shoulders)' }}>Balanced</h3>
+
+// Para texto comum (já é padrão, mas pode forçar)
+<p style={{ fontFamily: 'var(--font-lora)' }}>Texto</p>
+```
+
 ### Adicionar Novos Dinossauros
 
 1. Crie uma pasta em `public/assets/[nome-do-dino]`

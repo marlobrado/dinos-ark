@@ -59,7 +59,13 @@ export function DinoList({
                 borderBottom: '1px solid rgba(255,255,255,0.08)',
               }}
             >
-              <strong style={{ color: '#f5f5f7', fontSize: 16 }}>
+              <strong
+                style={{
+                  color: '#f5f5f7',
+                  fontSize: 16,
+                  fontFamily: 'var(--font-big-shoulders)',
+                }}
+              >
                 Dinos List
               </strong>
               <button
@@ -130,7 +136,15 @@ export function DinoList({
           pointerEvents: 'auto',
         }}
       >
-        <strong style={{ color: '#f5f5f7', fontSize: 15 }}>Dinos List</strong>
+        <strong
+          style={{
+            color: '#f5f5f7',
+            fontSize: 15,
+            fontFamily: 'var(--font-big-shoulders)',
+          }}
+        >
+          Dinos List
+        </strong>
 
         <nav
           style={{

@@ -5,8 +5,8 @@
       "isEgg": false,
       "diet": "h",
       "price": {
-        "egg-pair": 4,
-        "egg-m-or-f": 5,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -18,8 +18,8 @@
       "isEgg": false,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -33,8 +33,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -48,8 +48,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 5,
+        "egg-m-or-f": 3,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -63,8 +63,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -78,8 +78,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -93,8 +93,8 @@
       "isEgg": true,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -106,8 +106,8 @@
       "isEgg": true,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -121,12 +121,12 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 9,
+        "egg-m-or-f": 7,
         "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 0,
-        "clone-pair": 0
+        "clone-m-or-f": 11,
+        "clone-pair": 15
       }
     },
     "damage": {
@@ -134,12 +134,12 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 9,
+        "egg-m-or-f": 7,
         "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 0,
-        "clone-pair": 0
+        "clone-m-or-f": 11,
+        "clone-pair": 15
       }
     }
   },
@@ -149,8 +149,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 5,
+        "egg-m-or-f": 3,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -164,8 +164,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 5,
+        "egg-m-or-f": 3,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -179,8 +179,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -192,8 +192,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -207,8 +207,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -222,8 +222,8 @@
       "isEgg": false,
       "diet": "o",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -237,8 +237,8 @@
       "isEgg": true,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 8,
+        "egg-m-or-f": 6,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -256,7 +256,7 @@
         "egg-m-or-f": 0,
         "baby-pair": 0,
         "baby-m-or-f": 0,
-        "clone-m-or-f": 0,
+        "clone-m-or-f": 8,
         "clone-pair": 0
       }
     }
@@ -267,8 +267,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -282,8 +282,8 @@
       "isEgg": false,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -297,8 +297,8 @@
       "isEgg": true,
       "diet": "o",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -312,8 +312,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -327,8 +327,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 8,
+        "egg-m-or-f": 6,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -342,8 +342,8 @@
       "isEgg": true,
       "diet": "o",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -357,8 +357,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -372,8 +372,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -387,8 +387,8 @@
       "isEgg": false,
       "diet": "o",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -402,8 +402,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -415,8 +415,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -430,8 +430,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 8,
+        "egg-m-or-f": 6,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -445,8 +445,8 @@
       "isEgg": false,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -460,8 +460,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -473,8 +473,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -488,8 +488,8 @@
       "isEgg": true,
       "diet": "e",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -503,8 +503,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -518,8 +518,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 9,
+        "egg-m-or-f": 7,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -533,8 +533,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 8,
+        "egg-m-or-f": 6,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -548,8 +548,8 @@
       "isEgg": true,
       "diet": "h",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -563,8 +563,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -576,8 +576,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -591,8 +591,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -606,8 +606,8 @@
       "isEgg": false,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 7,
+        "egg-m-or-f": 5,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,
@@ -621,8 +621,8 @@
       "isEgg": true,
       "diet": "c",
       "price": {
-        "egg-pair": 0,
-        "egg-m-or-f": 0,
+        "egg-pair": 6,
+        "egg-m-or-f": 4,
         "baby-pair": 0,
         "baby-m-or-f": 0,
         "clone-m-or-f": 0,

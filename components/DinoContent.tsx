@@ -81,6 +81,8 @@ export function DinoContent({ dinos, setExpandedImage }: DinoContentProps) {
                 textTransform: 'capitalize',
                 fontSize: 26,
                 marginBottom: 10,
+                fontFamily: 'var(--font-big-shoulders-stencil)',
+                color: "rgba(255,255,255,0.85)",
               }}
             >
               {getDinoDisplayName(dino.dino)}
@@ -143,7 +145,12 @@ export function DinoContent({ dinos, setExpandedImage }: DinoContentProps) {
                       borderLeft: '3px solid rgba(255,255,255,0.12)',
                     }}
                   >
-                    <h3 style={{ textTransform: 'capitalize' }}>
+                    <h3
+                      style={{
+                        textTransform: 'capitalize',
+                        fontFamily: 'var(--font-big-shoulders)',
+                      }}
+                    >
                       <strong>{buildKey}</strong>
                     </h3>
 

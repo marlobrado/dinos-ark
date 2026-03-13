@@ -50,7 +50,10 @@ export function Footer() {
       >
         <div>
           <p style={{ color: '#f5f5f7', fontSize: 13, margin: 0 }}>
-            <strong>DinoLand</strong> © 2026
+            <strong style={{ fontFamily: 'var(--font-big-shoulders)' }}>
+              DinoLand
+            </strong>{' '}
+            © 2026
           </p>
         </div>
 

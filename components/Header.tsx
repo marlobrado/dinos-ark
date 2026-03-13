@@ -120,7 +120,13 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
                   borderBottom: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <strong style={{ color: '#f5f5f7', fontSize: 16 }}>
+                <strong
+                  style={{
+                    color: '#f5f5f7',
+                    fontSize: 16,
+                    fontFamily: 'var(--font-big-shoulders)',
+                  }}
+                >
                   Diet Filter
                 </strong>
                 <button
@@ -192,7 +198,12 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
           }}
         >
           <strong
-            style={{ color: '#f5f5f7', fontSize: 18, whiteSpace: 'nowrap' }}
+            style={{
+              color: '#f5f5f7',
+              fontSize: 18,
+              whiteSpace: 'nowrap',
+              fontFamily: 'var(--font-big-shoulders)',
+            }}
           >
             DinoLand
           </strong>
