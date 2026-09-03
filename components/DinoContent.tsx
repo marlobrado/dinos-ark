@@ -13,6 +13,8 @@ const priceOrder = [
   'clone-pair',
 ] as const;
 
+const showPrice = false;
+
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -166,7 +168,7 @@ export function DinoContent({ dinos, setExpandedImage }: DinoContentProps) {
                       </p>
                     )}
 
-                    {pricedItems.length > 0 && (
+                    {showPrice && pricedItems.length > 0 && (
                       <div style={{ marginTop: 8 }}>
                         <strong>Prices:</strong>
                         <ul style={{ marginTop: 6, color: '#c7c7cf' }}>
