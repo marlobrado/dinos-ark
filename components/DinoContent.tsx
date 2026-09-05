@@ -13,7 +13,7 @@ const priceOrder = [
   'clone-pair',
 ] as const;
 
-const showPrice = true;
+const showPrice = false;
 
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
